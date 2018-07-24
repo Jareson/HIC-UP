@@ -4,9 +4,13 @@ Overview:
 
 Features:     
   -User login: Allow connectivity to Google drive and link users in a family via family name
+  
   -Minimalist UI: Easily add and remove from database in few actions
+  
   -Extended customization features: Allow editing of items to add categories, add missing information, and set routine               notifications. Allow adding of the price of an item at purchase, as well as the place purchased. Stamp the update date of this as the current date the user updated the price. If the item is bought somewhere at a lower price, update the location with the newest low price purchase location to reflect in the database
+  
   -Google Sheets Database: Allow users to export to a Google sheets database to allow easy review of the household stock
+  
   -Grocery List Helper: Aid users in creating a grocery list based on routine purchases, low stock, and stock budget reminders
 
 

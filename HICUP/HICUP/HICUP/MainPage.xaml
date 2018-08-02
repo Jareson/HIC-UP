@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HICUP.MainPage"
+             Title="HIC-UP">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <StackLayout>
+        <Label Text="Settings" />
+        <Label Text="Welcome placeholder!" FontSize="30"
+           HorizontalOptions="Center" VerticalOptions="StartAndExpand" />
+        <Button BorderRadius="30" HeightRequest="80" WidthRequest="80" BackgroundColor="LightBlue" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="Start">
+                <Label Text="Last Shopped" HorizontalOptions="Start" VerticalOptions="StartAndExpand" />
+            </StackLayout>
+            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Label Text="Low Stock Count" HorizontalOptions="End" VerticalOptions="StartAndExpand" />
+            </StackLayout>
+        </StackLayout>
+        <Button x:Name="shoppingMode" Text="Shopping Mode" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="viewInventory" Text="View Inventory" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="modifyInventory" Text="Modify Inventory" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="makeGroceryList" Text="Make Grocery List" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
+
+    </StackLayout>
+
+</ContentPage>

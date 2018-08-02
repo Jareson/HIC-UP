@@ -13,14 +13,14 @@ Features: <br/>
 
     
 Technologies:<br/>
-  -Asp.net<br/>
+  -Xamarin<br/>
   -C#<br/>
-  -JavaScript<br/>
+  -XAML<br/>
   -MySQL<br/>
-  -Google Drive API <br/>
+  -Google Sheets API<br/>
     
 What you'll have to learn: <br/>
-  I will have to learn JavaScript and the Google sheets API in order produce readable and user friendly databases. They will not be the core database, they will be an extraction from the SQL database created in the app, but I want it to create a database in Sheets that is easy to read, and even color coded if possible. JavaScript will mostly be used within some of the interactions of the UI, as I want this to be an Android app. 
+  I will be learning how to use Xamarin in order to produce an Android app over Visual Studio through C#. This will also result in learing XAML and XML to create the UIs for the app, as well as Android SDK to understand how the architecture works. I intend to learn and utilize Javascript if possible, but that may not be immediately valuable. 
 
 
 

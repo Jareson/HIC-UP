@@ -10,8 +10,7 @@
     </ContentPage.Padding>
 
     <StackLayout>
-        <Label Text="Settings" />
-        <Label Text="Welcome placeholder!" FontSize="30"
+        <Label Text="Hello World!" FontSize="30"
            HorizontalOptions="Center" VerticalOptions="StartAndExpand" />
         <Button BorderRadius="30" HeightRequest="80" WidthRequest="80" BackgroundColor="LightBlue" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
         <StackLayout Orientation="Horizontal">
@@ -23,9 +22,9 @@
             </StackLayout>
         </StackLayout>
         <Button x:Name="shoppingMode" Text="Shopping Mode" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
-        <Button x:Name="viewInventory" Text="View Inventory" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
-        <Button x:Name="modifyInventory" Text="Modify Inventory" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="inventory" Text="Inventory" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
         <Button x:Name="makeGroceryList" Text="Make Grocery List" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="settings" Text="Settings" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
 
     </StackLayout>
 

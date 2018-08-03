@@ -18,20 +18,20 @@ namespace HICUP
 
         void OnViewInventory()
         {
-            viewInventory.IsEnabled = false;
-            viewInventory.Text = "View Inventory";
-        }
-
-        void OnModInventory()
-        {
-            modifyInventory.IsEnabled = false;
-            modifyInventory.Text = "Modify Inventory";
+            inventory.IsEnabled = false;
+            inventory.Text = "Inventory";
         }
 
         void OnMakeGroceryList()
         {
             makeGroceryList.IsEnabled = false;
             makeGroceryList.Text = "Make Grocery List";
+        }
+
+        void OnSettings()
+        {
+            makeGroceryList.IsEnabled = false;
+            makeGroceryList.Text = "Settings";
         }
     }
 }

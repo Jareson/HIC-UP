@@ -3,29 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.MainPage"
              Title="HIC-UP">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android" Value="20" />
-        </OnPlatform>
-    </ContentPage.Padding>
-
     <StackLayout>
-        <Label Text="Hello World!" FontSize="30"
-           HorizontalOptions="Center" VerticalOptions="StartAndExpand" />
-        <Button BorderRadius="30" HeightRequest="80" WidthRequest="80" BackgroundColor="LightBlue" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
+        <Label Text="Hello World!" 
+               FontSize="30"
+               HorizontalOptions="Center" 
+               VerticalOptions="StartAndExpand" />
+        <Image Source="profpic.jpg" 
+               HeightRequest="100"
+               WidthRequest="100"
+               HorizontalOptions="Center" 
+               VerticalOptions="StartAndExpand"/>
         <StackLayout Orientation="Horizontal">
-            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="Start">
-                <Label Text="Last Shopped" HorizontalOptions="Start" VerticalOptions="StartAndExpand" />
+            <StackLayout Spacing="0" 
+                         Orientation="Horizontal" 
+                         HorizontalOptions="Start">
+                <Label Text="Last Shopped" 
+                       HorizontalOptions="Start" 
+                       VerticalOptions="StartAndExpand" />
             </StackLayout>
-            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                <Label Text="Low Stock Count" HorizontalOptions="End" VerticalOptions="StartAndExpand" />
+            <StackLayout Spacing="0" 
+                         Orientation="Horizontal" 
+                         HorizontalOptions="EndAndExpand">
+                <Label Text="Low Stock Count" 
+                       HorizontalOptions="End" 
+                       VerticalOptions="StartAndExpand" />
             </StackLayout>
         </StackLayout>
-        <Button x:Name="shoppingMode" Text="Shopping Mode" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
-        <Button x:Name="inventory" Text="Inventory" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
-        <Button x:Name="makeGroceryList" Text="Make Grocery List" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
-        <Button x:Name="settings" Text="Settings" HeightRequest="80" WidthRequest="360" VerticalOptions="CenterAndExpand" />
-
+        <StackLayout Spacing="0">
+            <Button x:Name="shoppingModeButton" 
+                    Text="Shopping Mode" 
+                    HeightRequest="75" 
+                    VerticalOptions="CenterAndExpand"
+                    Clicked="OnShoppingMode"/>
+            <Button x:Name="inventoryButton" 
+                    Text="Inventory" 
+                    HeightRequest="75" 
+                    VerticalOptions="CenterAndExpand" />
+            <Button x:Name="makeGroceryListButton" 
+                    Text="Make Grocery List" 
+                    HeightRequest="75" 
+                    VerticalOptions="CenterAndExpand" />
+            <Button x:Name="settingsButton" 
+                    Text="Settings" 
+                    HeightRequest="75" 
+                    VerticalOptions="CenterAndExpand" />
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HICUP.UserLogin"
+             Title="Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Login" 
+                   FontSize="30" 
+                   TextColor="Black" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="StartAndExpand" />
+            <StackLayout Spacing="0">
+                <Entry x:Name="email" 
+                       Keyboard="Email" 
+                       Placeholder="Email" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"  />
+                <Entry x:Name="password" 
+                       IsPassword="True" 
+                       Placeholder="Password" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand" />
+                <Button x:Name="signInButton" 
+                        Text="Sign In" 
+                        HeightRequest="60" 
+                        WidthRequest="360" 
+                        VerticalOptions="CenterAndExpand" 
+                        Clicked="OnSignIn" />
+            </StackLayout>
+            <Button x:Name="registerButton" 
+                    Text="Register"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

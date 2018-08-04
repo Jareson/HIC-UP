@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HICUP.ShoppingMode"
+             Title="Shopping Mode">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="intro" Text="Shopping Mode"
+               FontSize="30"
+               HorizontalOptions="Center" 
+               VerticalOptions="Start" />
+            <StackLayout Spacing="1">
+                <Button x:Name="addItemButton"                        
+                        Text="Add Item"
+                        HeightRequest="170"
+                        VerticalOptions="CenterAndExpand"
+                        />
+                <Button x:Name="removeItemButton"                        
+                        Text="Remove Item"
+                        HeightRequest="170"
+                        VerticalOptions="CenterAndExpand"
+                        />
+                <Button x:Name="modifyItemButton"                        
+                        Text="Modify Item"                        
+                        HeightRequest="170"
+                        VerticalOptions="CenterAndExpand"
+                        />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

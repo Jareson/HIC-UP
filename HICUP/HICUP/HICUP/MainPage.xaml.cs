@@ -7,31 +7,31 @@ namespace HICUP
 	{
 		public MainPage()
 		{
-			InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();
 		}
 
-        void OnShoppingMode()
+        async void OnShoppingMode(Object sender, EventArgs args)
         {
-            shoppingMode.IsEnabled = false;
-            shoppingMode.Text = "Shopping Mode";
+            await Navigation.PushAsync(new ShoppingMode());
         }
 
         void OnViewInventory()
         {
-            inventory.IsEnabled = false;
-            inventory.Text = "Inventory";
+            inventoryButton.IsEnabled = false;
+            inventoryButton.Text = "Inventory";
         }
 
         void OnMakeGroceryList()
         {
-            makeGroceryList.IsEnabled = false;
-            makeGroceryList.Text = "Make Grocery List";
+            makeGroceryListButton.IsEnabled = false;
+            makeGroceryListButton.Text = "Make Grocery List";
         }
 
         void OnSettings()
         {
-            makeGroceryList.IsEnabled = false;
-            makeGroceryList.Text = "Settings";
+            makeGroceryListButton.IsEnabled = false;
+            makeGroceryListButton.Text = "Settings";
         }
     }
 }

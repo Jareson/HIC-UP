@@ -38,15 +38,18 @@
             <Button x:Name="inventoryButton" 
                     Text="Inventory" 
                     HeightRequest="75" 
-                    VerticalOptions="CenterAndExpand" />
+                    VerticalOptions="CenterAndExpand"
+                    IsEnabled="False"/>
             <Button x:Name="makeGroceryListButton" 
                     Text="Make Grocery List" 
                     HeightRequest="75" 
-                    VerticalOptions="CenterAndExpand" />
+                    VerticalOptions="CenterAndExpand"
+                    IsEnabled="False"/>
             <Button x:Name="settingsButton" 
                     Text="Settings" 
                     HeightRequest="75" 
-                    VerticalOptions="CenterAndExpand" />
+                    VerticalOptions="CenterAndExpand"
+                    IsEnabled="False"/>
         </StackLayout>
     </StackLayout>
 

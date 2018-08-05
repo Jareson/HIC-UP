@@ -37,7 +37,8 @@
             <Button x:Name="registerButton" 
                     Text="Register"
                     HorizontalOptions="Center" 
-                    VerticalOptions="EndAndExpand" />
+                    VerticalOptions="EndAndExpand"
+                    Clicked="OnRegister" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

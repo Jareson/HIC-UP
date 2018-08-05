@@ -13,9 +13,7 @@ namespace HICUP
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ShoppingMode : ContentPage
 	{
-        Label label;
-
-        public ShoppingMode()
+        public ShoppingMode ()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();     

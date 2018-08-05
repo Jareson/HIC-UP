@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HICUP.Register"
+             Title="Register">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Register" 
+                   FontSize="30" 
+                   TextColor="Black" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="StartAndExpand" />
+            <StackLayout Spacing="0">
+                <Entry x:Name="email" 
+                       Keyboard="Email" 
+                       Placeholder="Email" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"
+                       TextChanged="FieldChange"/>
+                <Entry x:Name="confirmEmail" 
+                       Keyboard="Email" 
+                       Placeholder="Confirm Email" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"
+                       TextChanged="FieldChange"/>
+                <Entry x:Name="password" 
+                       IsPassword="True" 
+                       Placeholder="Password" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"
+                       TextChanged="FieldChange"/>
+                <Entry x:Name="confirmPassword" 
+                       IsPassword="True" 
+                       Placeholder="Confirm Password" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"
+                       TextChanged="FieldChange"/>
+                <Entry x:Name="familyName"                        
+                       Placeholder="Family Name (Optional)" 
+                       PlaceholderColor="Gray" 
+                       WidthRequest="360" 
+                       HorizontalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="registerButton" 
+                        Text="register" 
+                        HeightRequest="60" 
+                        WidthRequest="360" 
+                        VerticalOptions="CenterAndExpand" 
+                        Clicked="OnRegister"
+                        IsEnabled="False"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

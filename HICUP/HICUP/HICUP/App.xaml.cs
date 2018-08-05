@@ -9,9 +9,7 @@ namespace HICUP
 	{
 		public App ()
 		{
-            
             InitializeComponent();
-
             MainPage = new NavigationPage(new UserLogin());
 
         }
@@ -30,5 +28,6 @@ namespace HICUP
 		{
 			// Handle when your app resumes
 		}
-	}
+
+    }
 }

@@ -15,12 +15,16 @@ namespace HICUP
 		public UserLogin ()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
-            InitializeComponent ();
+            InitializeComponent();
 		}
 
         async void OnSignIn(Object sender, EventArgs args)
         {
             await Navigation.PushAsync(new MainPage());
+        }
+        async void OnRegister(Object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Register());
         }
 	}
 }

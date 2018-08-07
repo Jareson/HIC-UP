@@ -17,8 +17,6 @@ namespace HICUP.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            ActionBar.Hide();
-
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);

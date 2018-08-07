@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -20,18 +21,27 @@ namespace HICUP.Data
 
         }
 
-        public User GetUser()
+        public IEnumerable<User> GetUser()
         {
             lock (locker)
             {
-                if(database.Table<User>().Count() == 0)
-                {
-                    return null;
-                }
-                else
-                {
-                    return database.Table<User>().First();
-                }
+                return (from i in database.Table<User>() select i).ToList();
+            }
+        }
+
+        public User CheckUser(string email)
+        {
+            lock (locker)
+            {
+                return database.Table<User>().FirstOrDefault(x => x.Email == email);
+            }
+        }
+
+        public User CheckUser(string email, string password)
+        {
+            lock (locker)
+            {
+                return database.Table<User>().FirstOrDefault(x => x.Email == email && x.Password == password);
             }
         }
 
@@ -39,7 +49,7 @@ namespace HICUP.Data
         {
             lock (locker)
             {
-                if(user.Id != 0)
+                if (user.Id != 0)
                 {
                     database.Update(user);
                     return user.Id;

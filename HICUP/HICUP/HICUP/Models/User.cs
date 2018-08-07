@@ -10,11 +10,10 @@ namespace HICUP.Models
     {
         [PrimaryKey, AutoIncrement, Column("ID")]
         public int Id { get; set; }
-        [Column("Email"), Unique]
+        [Unique]
         public string Email { get; set; }
-        [Column("Password")]        
         public string Password { get; set; }
-        [Column("Family"), Unique]
+        [Unique]
         public string Family { get; set; }
 
         public User() { }
@@ -32,18 +31,11 @@ namespace HICUP.Models
             this.Family = Family;
         }
 
-        public bool CheckInformation()
+        public bool CheckNotEmpty()
         {
-            if(!this.Email.Equals("") && !this.Password.Equals(""))
+            if (!this.Email.Equals("") && !this.Password.Equals(""))
             {
-                if(this.Email.Equals(App.UserDatabase.GetUser()) && this.Password.Equals(App.UserDatabase.GetUser()))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {

@@ -10,8 +10,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using HICUP.Data;
 using Xamarin.Forms;
+using HICUP.Data;
 using HICUP.Droid.Data;
 
 [assembly: Dependency(typeof(SQLite_Android))]

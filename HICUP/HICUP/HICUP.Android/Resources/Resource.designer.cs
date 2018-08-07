@@ -3944,16 +3944,13 @@ namespace HICUP.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int 10525976_10204359768848006_3830536871121366602_n = 2130903040;
+			public const int icon = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int icon = 2130903041;
+			public const int icon_round = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int icon_round = 2130903042;
-			
-			// aapt resource value: 0x7f030003
-			public const int launcher_foreground = 2130903043;
+			public const int launcher_foreground = 2130903042;
 			
 			static Mipmap()
 			{

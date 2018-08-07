@@ -29,14 +29,24 @@ namespace HICUP
         async void OnSignIn(Object sender, EventArgs args)
         {
             User user = new User(email.Text, password.Text);
-            if (user.CheckInformation())
+            if (user.CheckNotEmpty())
             {
-                await DisplayAlert("Login", "Login Success", "OK");
-                await Navigation.PushAsync(new MainPage());
+                User dbCheck = App.UserDatabase.CheckUser(user.Email, user.Password);
+                if (user.Email == dbCheck.Email && user.Password == dbCheck.Password)
+                {
+                    
+                    await DisplayAlert("Login", "Login Success", "OK");
+                    await Navigation.PushAsync(new MainPage());
+
+                }
+                else
+                {
+                    await DisplayAlert("Login", "Login Error, Invalid Email or Password", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Login", "Login Not Correct Email or Password", "OK");
+                await DisplayAlert("Login", "Login Error, Please Enter Email or Password", "OK");
             }
         }
         async void OnRegister(Object sender, EventArgs args)

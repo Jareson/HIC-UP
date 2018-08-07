@@ -16,7 +16,7 @@ Technologies:<br/>
   -Xamarin<br/>
   -C#<br/>
   -XAML<br/>
-  -MySQL<br/>
+  -SQLite<br/>
   -Google Sheets API<br/>
     
 What you'll have to learn: <br/>

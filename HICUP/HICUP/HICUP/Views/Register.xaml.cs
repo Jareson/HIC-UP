@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HICUP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,10 +53,14 @@ namespace HICUP
 
                     if (string.IsNullOrEmpty(familyName.Text))
                     {
+                        User user = new User(email.Text, password.Text);
+                        App.UserDatabase.SaveUser(user);
                         await Navigation.PushAsync(new UserLogin());
                     }
                     else
                     {
+                        User user = new User(email.Text, password.Text, familyName.Text);
+                        App.UserDatabase.SaveUser(user);
                         await Navigation.PushAsync(new UserLogin());
                     }
                 }

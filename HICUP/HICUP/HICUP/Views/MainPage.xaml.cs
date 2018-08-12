@@ -19,19 +19,16 @@ namespace HICUP
         void OnViewInventory()
         {
             inventoryButton.IsEnabled = false;
-            inventoryButton.Text = "Inventory";
         }
 
         void OnMakeGroceryList()
         {
             makeGroceryListButton.IsEnabled = false;
-            makeGroceryListButton.Text = "Make Grocery List";
         }
 
         void OnSettings()
         {
             makeGroceryListButton.IsEnabled = false;
-            makeGroceryListButton.Text = "Settings";
         }
     }
 }

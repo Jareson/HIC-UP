@@ -8,7 +8,7 @@
                FontSize="30"
                HorizontalOptions="Center" 
                VerticalOptions="StartAndExpand" />
-        <Image Source="profpic.jpg" 
+        <Image Source="blankuser.png" 
                HeightRequest="100"
                WidthRequest="100"
                HorizontalOptions="Center" 
@@ -41,12 +41,12 @@
                     VerticalOptions="CenterAndExpand"
                     IsEnabled="False"/>
             <Button x:Name="makeGroceryListButton" 
-                    Text="Make Grocery List" 
+                    Text="Coming Soon!" 
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
                     IsEnabled="False"/>
             <Button x:Name="settingsButton" 
-                    Text="Settings" 
+                    Text="Coming Soon!" 
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
                     IsEnabled="False"/>

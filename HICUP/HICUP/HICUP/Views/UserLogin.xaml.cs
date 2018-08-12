@@ -26,27 +26,46 @@ namespace HICUP
             password.Completed += (s, e) => OnSignIn(s, e);
         }
 
-        async void OnSignIn(Object sender, EventArgs args)
+        void FieldChange(Object sender, TextChangedEventArgs args)
         {
-            User user = new User(email.Text, password.Text);
-            if (user.CheckNotEmpty())
-            {
-                User dbCheck = App.UserDatabase.CheckUser(user.Email, user.Password);
-                if (user.Email == dbCheck.Email && user.Password == dbCheck.Password)
-                {
-                    
-                    await DisplayAlert("Login", "Login Success", "OK");
-                    await Navigation.PushAsync(new MainPage());
+            List<string> blanks = new List<string>();
+            blanks.Add(email.Text);
+            blanks.Add(password.Text);
 
+            foreach (string element in blanks)
+            {
+                if (string.IsNullOrEmpty(element))
+                {
+                    signInButton.IsEnabled = false;
+                    break;
                 }
                 else
                 {
-                    await DisplayAlert("Login", "Login Error, Invalid Email or Password", "OK");
+                    signInButton.IsEnabled = true;
                 }
+            }
+        }
+
+        async void OnSignIn(Object sender, EventArgs args)
+        {
+            User user = new User(email.Text, password.Text);
+            User dbCheck = App.UserDatabase.CheckUser(user.Email, user.Password);
+            if (user.Email == dbCheck.Email)
+            {
+                if (user.Password == dbCheck.Password)
+                {
+                    await DisplayAlert("Login", "Login Success", "OK");
+                    await Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    await DisplayAlert("Login", "Login Error, Invalid Password", "OK");
+                }
+
             }
             else
             {
-                await DisplayAlert("Login", "Login Error, Please Enter Email or Password", "OK");
+                await DisplayAlert("Login", "Login Error, Invalid Email", "OK");
             }
         }
         async void OnRegister(Object sender, EventArgs args)

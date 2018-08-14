@@ -12,10 +12,14 @@ namespace HICUP.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        [ForeignKey(typeof(User)), Unique]
         public string FamilyName { get; set; }
+        [Unique]
         public string FamilyAdmin { get; set; }
+        [Unique]
         public int RelatedTable { get; set; }
+
+        [OneToMany]
+        public List<User> FamilyMembers { get; set; }
 
         public Family() { }
         public Family(string FamilyName, string FamilyAdmin)

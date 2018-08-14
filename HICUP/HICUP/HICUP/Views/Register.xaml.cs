@@ -46,11 +46,11 @@ namespace HICUP
             {
 
                 confirmPassword.TextColor = Color.Black;
-                User dbCheck = App.UserDatabase.CheckUser(email.Text);
+                User userCheck = App.UserDatabase.CheckUser(email.Text);
 
-                if (string.IsNullOrEmpty(familyName.Text))
+                if (userCheck == null)
                 {
-                    if (dbCheck == null)
+                    if (string.IsNullOrEmpty(familyName.Text))
                     {
                         User user = new User(username.Text, email.Text, password.Text);
                         App.UserDatabase.SaveUser(user);
@@ -59,26 +59,26 @@ namespace HICUP
                     }
                     else
                     {
-                        email.TextColor = Color.Red;
-                        await DisplayAlert("Email", "This email is already taken!", "Ok");
-
+                        Family familyCheck = App.FamilyDatabase.CheckFamily(familyName.Text);
+                        if (familyCheck == null)
+                        {
+                            User user = new User(username.Text, email.Text, password.Text, familyName.Text);
+                            App.UserDatabase.SaveUser(user);
+                            await DisplayAlert("Success", "New Account Created", "Ok");
+                            await Navigation.PushAsync(new UserLogin());
+                        }
+                        else
+                        {
+                            familyName.TextColor = Color.Red;
+                            await DisplayAlert("Family", "This Family Name is already in use. If you would like to join it, create an account and request access.", "Ok");
+                        }
                     }
                 }
                 else
                 {
-                    if (dbCheck == null)
-                    {
-                        User user = new User(username.Text, email.Text, password.Text, familyName.Text);
-                        App.UserDatabase.SaveUser(user);
-                        await DisplayAlert("Success", "New Account Created", "Ok");
-                        await Navigation.PushAsync(new UserLogin());
-                    }
-                    else
-                    {
-                        email.TextColor = Color.Red;
-                        await DisplayAlert("Email", "This email is already taken!", "Ok");
+                    email.TextColor = Color.Red;
+                    await DisplayAlert("Email", "This email is already taken!", "Ok");
 
-                    }
                 }
             }
             else

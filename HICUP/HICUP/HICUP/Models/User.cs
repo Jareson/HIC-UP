@@ -15,11 +15,13 @@ namespace HICUP.Models
         public string Username { get; set; }
         [Unique]
         public string Email { get; set; }
-        [MaxLength(15)]
         public string Password { get; set; }
-        [Unique]
-        public string Family { get; set; }
-        public string FamilyId { get; set; }
+        [ForeignKey(typeof(Family))]
+        public int FamilyId { get; set; }
+
+        [ManyToOne]
+        public Family Family { get; set; }
+
 
         public User() { }
         public User(string Username, string Email, string Password)
@@ -27,32 +29,34 @@ namespace HICUP.Models
             this.Username = Username;
             this.Email = Email;
             this.Password = Password;
-            this.Family = Email;
-
+            Family familyCheck = App.FamilyDatabase.CheckFamily(Email);
+            if (familyCheck == null)
+            {
+                Family newFamily = new Family(Email, Email);
+                App.FamilyDatabase.SaveFamily(newFamily);
+                this.FamilyId = App.FamilyDatabase.CheckFamily(Email).Id;
+            }
         }
+
         public User(string Username, string Email, string Password, string Family)
         {
             this.Username = Username;
             this.Email = Email;
             this.Password = Password;
-            this.Family = Family;
+            Family familyCheck = App.FamilyDatabase.CheckFamily(Family);
+            if (familyCheck == null)
+            {
+                Family newFamily = new Family(Family, Email);
+                App.FamilyDatabase.SaveFamily(newFamily);
+                this.FamilyId = App.FamilyDatabase.CheckFamily(Family).Id;
+            }
         }
+
         public User(string Email, string Password)
         {
             this.Email = Email;
             this.Password = Password;
-        }
 
-        public bool CheckNotEmpty()
-        {
-            if (!this.Email.Equals("") && !this.Password.Equals(""))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace HICUP
     {
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
+        static FamilyDatabaseController familyDatabase;
 
         public App()
         {
@@ -62,6 +63,18 @@ namespace HICUP
                 return tokenDatabase;
             }
         }
+        public static FamilyDatabaseController FamilyDatabase
+        {
+            get
+            {
+                if (familyDatabase == null)
+                {
+                    familyDatabase = new FamilyDatabaseController();
+                }
+                return familyDatabase;
+            }
+        }
+
 
     }
 }

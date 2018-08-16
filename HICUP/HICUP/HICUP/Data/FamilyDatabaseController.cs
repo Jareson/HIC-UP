@@ -17,7 +17,7 @@ namespace HICUP.Data
         public FamilyDatabaseController()
         {
             database = DependencyService.Get<IDatabaseConnection>().GetConnection();
-            database.CreateTable<User>();
+            database.CreateTable<Family>();
 
         }
 

@@ -15,11 +15,11 @@ namespace HICUP.Models
         public string FamilyName { get; set; }
         [Unique]
         public string FamilyAdmin { get; set; }
-        [Unique]
-        public int RelatedTable { get; set; }
 
         [OneToMany]
         public List<User> FamilyMembers { get; set; }
+        [OneToMany]
+        public List<Inventory> FamilyItems { get; set; }
 
         public Family() { }
         public Family(string FamilyName, string FamilyAdmin)

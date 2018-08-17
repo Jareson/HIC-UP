@@ -12,6 +12,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ModifyItem.xaml.cs">
+      <DependentUpon>ModifyItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RemoveItem.xaml.cs">
+      <DependentUpon>RemoveItem.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AddItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Register.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

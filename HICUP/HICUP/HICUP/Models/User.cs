@@ -58,5 +58,10 @@ namespace HICUP.Models
             this.Password = Password;
 
         }
+
+        public bool PasswordMatch(string pass1, string pass2)
+        {
+            return pass1.Equals(pass2);
+        }
     }
 }

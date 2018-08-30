@@ -29,6 +29,19 @@ namespace HICUP.Data
             }
         }
 
+        public Inventory CheckItem(string item, int family)
+        {
+            lock (locker)
+            {
+                return database.Table<Inventory>().FirstOrDefault(x => x.Item == item && x.FamilyId == family);
+            }
+        }
+
+        public List<Inventory> ViewInventory(int familyID)
+        {
+            return database.Table<Inventory>().Where(x => x.FamilyId == familyID).ToList();
+        }
+
         public int SaveInventory(Inventory inventory)
         {
             lock (locker)

@@ -2,9 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.Views.ViewInventory">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="plainLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
+            <Grid x:Name="inventoryGrid" RowSpacing="1" ColumnSpacing="1" BackgroundColor="#404040">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -17,11 +33,11 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Label Text="Inventory" FontSize="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" />
-                <Label Text="Item" Grid.Row="1" Grid.Column="0" />
-                <Label Text="Quantity" Grid.Row="1" Grid.Column="1" />
-                <Label Text="Cheapest Price" Grid.Row="1" Grid.Column="2" />
-                <Label Text="Price Location" Grid.Row="1" Grid.Column="3" />
-                <Label Text="Last Purchase Date" Grid.Row="1" Grid.Column="4" />
+                <Button x:Name="item" Text="Item" Grid.Row="1" Grid.Column="0" Style="{StaticResource plainButton}" />
+                <Button x:Name="quantity" Text="Quantity" Grid.Row="1" Grid.Column="1" Style="{StaticResource plainButton}" />
+                <Button x:Name="price" Text="Cheapest Price" Grid.Row="1" Grid.Column="2" Style="{StaticResource plainButton}" />
+                <Button x:Name="location" Text="Price Location" Grid.Row="1" Grid.Column="3" Style="{StaticResource plainButton}" />
+                <Button x:Name="date" Text="Last Purchase Date" Grid.Row="1" Grid.Column="4" Style="{StaticResource plainButton}" />
             </Grid>
         </ScrollView>
     </ContentPage.Content>

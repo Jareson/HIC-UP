@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HICUP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,14 @@ namespace HICUP.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent ();
 		}
+
+        //Grid Key
+        //0 = Item, 1 = Quantity, 2 = Price, 3 = Location, 4 = Date
+
+        void inventoryGrid()
+        {
+
+            List<Inventory> inventory = App.InventoryDatabase.ViewInventory(Constants.userToken.familyId);
+        }
 	}
 }

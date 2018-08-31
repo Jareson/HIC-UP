@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using SQLitePCL;
 using SQLite;
 using HICUP.Data;
+using HICUP.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace HICUP
@@ -20,7 +21,10 @@ namespace HICUP
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new UserLogin());
+            if (Constants.userToken.expireDate < DateTime.Now)
+                MainPage = new NavigationPage(new UserLogin());
+            else
+                MainPage = new NavigationPage(new MainPage());
 
         }
 

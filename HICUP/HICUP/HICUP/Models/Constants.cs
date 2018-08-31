@@ -8,6 +8,6 @@ namespace HICUP.Models
     public class Constants
     {
         public static bool IsDev = true;
-
+        public static Token userToken = App.TokenDatabase.GetToken();
     }
 }

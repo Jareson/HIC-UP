@@ -54,6 +54,8 @@ namespace HICUP
             {
                 if (user.Password == dbCheck.Password)
                 {
+                    Token newToken = new Token(dbCheck, dbCheck.FamilyId);
+                    App.TokenDatabase.SaveToken(newToken);
                     await DisplayAlert("Login", "Login Success", "OK");
                     await Navigation.PushAsync(new MainPage());
                 }

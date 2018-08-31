@@ -22,9 +22,14 @@ namespace HICUP
         {
             InitializeComponent();
             if (Constants.userToken.expireDate < DateTime.Now)
+            {
+                App.TokenDatabase.DeleteToken(Constants.userToken.Id);
                 MainPage = new NavigationPage(new UserLogin());
+            }
             else
+            {
                 MainPage = new NavigationPage(new MainPage());
+            }
 
         }
 

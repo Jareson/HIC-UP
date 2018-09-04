@@ -22,12 +22,6 @@
                         VerticalOptions="CenterAndExpand"
                         Clicked="OnRemoveItem"
                         />
-                <Button x:Name="modifyItemButton"                        
-                        Text="Modify Item"                        
-                        HeightRequest="170"
-                        VerticalOptions="CenterAndExpand"
-                        Clicked="OnModifyItem"
-                        />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

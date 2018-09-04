@@ -9,18 +9,18 @@ namespace HICUP.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public User username { get; set; }
-        public bool accessToken { get; set; }
-        public int familyId { get; set; }
-        public DateTime expireDate { get; set; }
+        public User Username { get; set; }
+        public bool AccessToken { get; set; }
+        public int FamilyId { get; set; }
+        public DateTime ExpireDate { get; set; }
 
         public Token() { }
         public Token(User Username, int FamilyId)
         {
-            this.username = Username;
-            this.familyId = FamilyId;
-            this.accessToken = true;
-            this.expireDate = DateTime.Today.AddDays(3);
+            this.Username = Username;
+            this.FamilyId = FamilyId;
+            this.AccessToken = true;
+            this.ExpireDate = DateTime.Today.AddDays(3);
         }
 
     }

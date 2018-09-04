@@ -12,8 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ModifyItem.xaml.cs">
-      <DependentUpon>ModifyItem.xaml</DependentUpon>
+    <Compile Update="Views\SearchItem.xaml.cs">
+      <DependentUpon>SearchItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ViewModifyItem.xaml.cs">
+      <DependentUpon>ViewModifyItem.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\RemoveItem.xaml.cs">
       <DependentUpon>RemoveItem.xaml</DependentUpon>
@@ -34,6 +37,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewInventory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SearchItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

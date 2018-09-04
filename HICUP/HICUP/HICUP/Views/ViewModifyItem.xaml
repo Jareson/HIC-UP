@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HICUP.Views.ViewModifyItem">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="View"
+                   FontSize="30"
+                   HorizontalOptions="Center"
+                   VerticalOptions="StartAndExpand"/>
+            <StackLayout Spacing="0">
+                <Label x:Name="itemName"
+                        VerticalOptions="StartAndExpand"
+                        HorizontalOptions="Center"/>
+                <Label x:Name="itemMeasurement"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="itemQuantity"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="price"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="location"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="date"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"/>
+                <Button x:Name="modifyItem" 
+                    Text="Modify this Item"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="StartAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

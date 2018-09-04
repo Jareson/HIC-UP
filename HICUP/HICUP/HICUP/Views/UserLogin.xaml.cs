@@ -28,9 +28,7 @@ namespace HICUP
 
         void FieldChange(Object sender, TextChangedEventArgs args)
         {
-            List<string> blanks = new List<string>();
-            blanks.Add(email.Text);
-            blanks.Add(password.Text);
+            List<string> blanks = new List<string> { email.Text, password.Text};
 
             foreach (string element in blanks)
             {

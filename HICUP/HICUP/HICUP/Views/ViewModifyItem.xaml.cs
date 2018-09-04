@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace HICUP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ModifyItem : ContentPage
+	public partial class ViewModifyItem : ContentPage
 	{
-		public ModifyItem ()
+		public ViewModifyItem()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();

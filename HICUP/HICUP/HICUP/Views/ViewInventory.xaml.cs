@@ -16,6 +16,8 @@ namespace HICUP.Views
 		public ViewInventory ()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent ();
+
             List<Inventory> inventory = App.InventoryDatabase.ViewInventory(Constants.userToken.FamilyId);
             int rowNum = 2;
             foreach (Inventory i in inventory)
@@ -26,8 +28,7 @@ namespace HICUP.Views
                 inventoryGrid.Children.Add(new Label { Text = i.ItemLocation.ToString(), Style = plainLabel }, 3, rowNum);
                 inventoryGrid.Children.Add(new Label { Text = i.PurchaseDate.ToString(), Style = plainLabel }, 4, rowNum);
             }
-            InitializeComponent ();
-		}
+        }
 
         /*Grid Key
         0 = Item, 1 = Quantity, 2 = Price, 3 = Location, 4 = Date*/

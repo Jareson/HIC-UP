@@ -12,7 +12,8 @@
             <Button x:Name="detailsButton"
                     Text="See Item Details"
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    Clicked="OnDetailsButton"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

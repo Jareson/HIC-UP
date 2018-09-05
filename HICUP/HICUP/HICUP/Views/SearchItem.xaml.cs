@@ -16,12 +16,18 @@ namespace HICUP.Views
 		public SearchItem()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();
+
             List<Inventory> inventory = App.InventoryDatabase.ViewInventory(Constants.userToken.FamilyId);
             foreach (Inventory i in inventory)
             {
                 itemPicker.Items.Add(i.Item.ToString());
             }
-            InitializeComponent();
-		}
+        }
+
+        async void OnDetailsButton(Object Sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new ViewModifyItem(itemPicker.SelectedItem));
+        }
 	}
 }

@@ -33,9 +33,10 @@
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
                 <Button x:Name="modifyItem" 
-                    Text="Modify this Item"
-                    HorizontalOptions="Center" 
-                    VerticalOptions="StartAndExpand" />
+                        Text="Modify this Item"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="StartAndExpand"
+                        Clicked="OnModifyItem"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

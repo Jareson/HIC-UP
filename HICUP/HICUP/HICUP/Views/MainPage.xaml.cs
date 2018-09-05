@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HICUP.Views;
+using System;
 using Xamarin.Forms;
 
 namespace HICUP
@@ -21,14 +22,14 @@ namespace HICUP
             inventoryButton.IsEnabled = false;
         }
 
-        void OnMakeGroceryList()
+        async void OnSearchItem()
         {
-            makeGroceryListButton.IsEnabled = false;
+            await Navigation.PushAsync(new SearchItem());
         }
 
         void OnSettings()
         {
-            makeGroceryListButton.IsEnabled = false;
+            
         }
     }
 }

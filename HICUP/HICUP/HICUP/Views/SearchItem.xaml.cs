@@ -27,7 +27,7 @@ namespace HICUP.Views
 
         async void OnDetailsButton(Object Sender, EventArgs args)
         {
-            await Navigation.PushAsync(new ViewModifyItem(itemPicker.SelectedItem));
+            await Navigation.PushAsync(new ViewItem(itemPicker.SelectedItem));
         }
 	}
 }

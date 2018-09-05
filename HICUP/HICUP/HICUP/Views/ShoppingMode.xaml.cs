@@ -29,10 +29,5 @@ namespace HICUP
         {
             await Navigation.PushAsync(new RemoveItem());
         }
-
-        async void OnModifyItem()
-        {
-            await Navigation.PushAsync(new ModifyItem());
-        }
     }
 }

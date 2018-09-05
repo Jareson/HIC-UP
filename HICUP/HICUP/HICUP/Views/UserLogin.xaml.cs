@@ -26,7 +26,7 @@ namespace HICUP
             password.Completed += (s, e) => OnSignIn(s, e);
         }
 
-        void FieldChange(Object sender, TextChangedEventArgs args)
+        void FieldChanged(Object sender, TextChangedEventArgs args)
         {
             List<string> blanks = new List<string> { email.Text, password.Text};
 

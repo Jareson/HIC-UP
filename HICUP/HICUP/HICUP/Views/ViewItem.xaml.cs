@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace HICUP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ViewModifyItem : ContentPage
+	public partial class ViewItem : ContentPage
 	{
-		public ViewModifyItem(object item)
+		public ViewItem(object item)
 		{
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
@@ -28,9 +28,9 @@ namespace HICUP.Views
             date.Text = selection.PurchaseDate.ToString();
 		}
 
-        /*async void OnModifyItem(Object Sender, EventArgs args)
+        async void OnModifyItem(Object Sender, EventArgs args)
         {
-            await itemName
-        }*/
+            await Navigation.PushAsync(new ModifyItem(itemName));
+        }
     }
 }

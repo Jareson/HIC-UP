@@ -19,8 +19,7 @@
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"
-                       TextChanged="FieldChanged"/>
+                       HorizontalOptions="Center"/>
                 <Button x:Name="removeItem" 
                     Text="Remove from Inventory"
                     HorizontalOptions="Center" 

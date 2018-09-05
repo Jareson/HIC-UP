@@ -40,11 +40,12 @@
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
                     IsEnabled="False"/>
-            <Button x:Name="makeGroceryListButton" 
-                    Text="Coming Soon!" 
+            <Button x:Name="searchItemButton" 
+                    Text="Search Item" 
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
-                    IsEnabled="False"/>
+                    IsEnabled="False"
+                    Clicked="OnSearchItem"/>
             <Button x:Name="settingsButton" 
                     Text="Coming Soon!" 
                     HeightRequest="75" 

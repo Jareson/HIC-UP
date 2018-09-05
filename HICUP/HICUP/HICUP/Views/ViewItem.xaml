@@ -1,50 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HICUP.Views.AddItem">
+             x:Class="HICUP.Views.ViewItem">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Add Item"
+            <Label Text="View Item"
                    FontSize="30"
                    HorizontalOptions="Center"
                    VerticalOptions="StartAndExpand"/>
             <StackLayout Spacing="0">
-                <Entry x:Name="itemName"
-                       Placeholder="Item Name"
-                       PlaceholderColor="Gray"
+                <Label x:Name="itemName"
+                        VerticalOptions="StartAndExpand"
+                        HorizontalOptions="Center"/>
+                <Label x:Name="itemMeasurement"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Entry x:Name="itemMeasurement"
-                       Placeholder="Item Measurement"
-                       PlaceholderColor="Gray"
+                <Label x:Name="itemQuantity"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Entry x:Name="itemQuantity"
-                       Keyboard="Numeric"
-                       Placeholder="Item Quantity"
-                       PlaceholderColor="Gray"
+                <Label x:Name="price"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Entry x:Name="price"
-                       Placeholder="Price (Optional)"
-                       Keyboard="Numeric"
-                       PlaceholderColor="Gray"
+                <Label x:Name="location"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Entry x:Name="location"
-                       Placeholder="Location of Purchase (Optional)"
-                       PlaceholderColor="Gray"
+                <Label x:Name="date"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Button x:Name="addItem" 
-                    Text="Add to Inventory"
-                    HorizontalOptions="Center" 
-                    VerticalOptions="StartAndExpand" />
+                <Button x:Name="modifyItem" 
+                        Text="Modify this Item"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="StartAndExpand"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

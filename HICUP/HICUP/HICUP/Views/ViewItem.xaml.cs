@@ -30,7 +30,7 @@ namespace HICUP.Views
 
         async void OnModifyItem(Object Sender, EventArgs args)
         {
-            await Navigation.PushAsync(new ModifyItem(itemName));
+            await Navigation.PushAsync(new ModifyItem(new Inventory(itemName.Text, itemMeasurement.Text, Int32.Parse(itemQuantity.Text), Decimal.Parse(price.Text), location.Text)));
         }
     }
 }

@@ -9,7 +9,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="StartAndExpand"/>
             <StackLayout Spacing="0">
-                <Entry x:Name="itemName"
+                <Entry x:Name="itemName"                       
                         VerticalOptions="StartAndExpand"
                         HorizontalOptions="Center"/>
                 <Entry x:Name="itemMeasurement"
@@ -30,16 +30,17 @@
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Entry x:Name="date"
-                       HorizontalTextAlignment="Start"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                <DatePicker x:Name="date"                            
+                            VerticalOptions="StartAndExpand"
+                            HorizontalOptions="Center"/>
                 <Button x:Name="saveItem" 
                         Text="Save Changes"
                         HorizontalOptions="Center" 
                         VerticalOptions="StartAndExpand"
                         Clicked="OnSaveItem"/>
             </StackLayout>
+            <Label x:Name="itemID"
+                   IsVisible="False"/>
         </StackLayout>
     </ContentPage.Content>
 

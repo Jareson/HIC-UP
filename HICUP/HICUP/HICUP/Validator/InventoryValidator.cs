@@ -17,7 +17,7 @@ namespace HICUP.Validator
         public InventoryValidator()
         {
             RuleFor(c => c.Item).Must(n => ValidateStringEmpty(n)).WithMessage("Item name should not be empty.");
-            RuleFor(c => c.Item).Must(x => !IsDuplicate(x)).WithMessage("This Item Already Exists!");
+            RuleFor(c => c.Item).Must(n => !IsDuplicate(n)).WithMessage("This Item Already Exists!");
             RuleFor(c => c.ItemMeasurement).Must(n => ValidateStringEmpty(n)).WithMessage("Item Measurement should not be empty.");
             RuleFor(c => c.ItemQuantity).NotNull();
         }
@@ -32,12 +32,12 @@ namespace HICUP.Validator
         private bool IsDuplicate(string item)
         {
 
-            getContacts();
+            getInventory();
             return FullInventory.Any(x => x.Item == item.ToUpper());
 
         }
 
-        void getContacts()
+        void getInventory()
         {
             FullInventory = _inventoryRepo.GetInventory();
         }

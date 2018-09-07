@@ -14,16 +14,11 @@ namespace HICUP.ViewModels
 {
     public class ViewInventoryViewModel : BaseInventoryViewModel
     {
-        public ICommand AddCommand { get; private set; }
-        public ICommand DeleteInventoryCommand { get; private set; }
 
         public ViewInventoryViewModel(INavigation navigation)
         {
             _navigation = navigation;
             _inventoryRepo = new InventoryRepo();
-
-            AddCommand = new Command(async () => await ShowAddItem());
-            DeleteInventoryCommand = new Command(async () => await DeleteInventory());
 
             FetchInventory();
         }
@@ -33,20 +28,6 @@ namespace HICUP.ViewModels
             InventoryList = _inventoryRepo.GetInventory();
         }
 
-        async Task ShowAddItem()
-        {
-            await _navigation.PushAsync(new AddItem());
-        }
-
-        async Task DeleteInventory()
-        {
-            bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Delete Inventory", "Delete Entire Inventory?", "OK", "Cancel");
-            if (isUserAccept)
-            {
-                _inventoryRepo.DeleteInventory();
-                await _navigation.PushAsync(new AddItem());
-            }
-        }
 
         async void ViewItem(int selectedItemID)
         {

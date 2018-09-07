@@ -34,7 +34,7 @@ namespace HICUP.ViewModels
             get => _item.ItemMeasurement;
             set
             {
-                _item.ItemMeasurement = value.ToUpper();
+                _item.ItemMeasurement = value;
                 NotifyPropertyChanged("ItemMeasurement");
             }
         }
@@ -84,6 +84,15 @@ namespace HICUP.ViewModels
                     _item.PurchaseDate = DateTime.Today;
                     NotifyPropertyChanged("PurchaseDate");
                 }
+            }
+        }
+
+        public string QuantityView
+        {
+
+            get
+            {
+                return string.Format("{0} {1}.", ItemQuantity, ItemMeasurement);
             }
         }
 

@@ -11,8 +11,8 @@
             <StackLayout Spacing="0">
                 <Label x:Name="itemName"
                        Text="{Binding Item}"
-                        VerticalOptions="StartAndExpand"
-                        HorizontalOptions="Center"/>
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"/>
                 <Label x:Name="itemMeasurement"
                        Text="{Binding ItemMeasurement}"
                        HorizontalTextAlignment="Start"
@@ -42,7 +42,7 @@
                         Text="Modify this Item"
                         HorizontalOptions="Center" 
                         VerticalOptions="StartAndExpand"
-                        Clicked="OnModifyItem"/>
+                        Command="{Binding ModifyItemCommand}"/>
                 <Button x:Name="deleteItem" 
                         Text="Delete this Item"
                         HorizontalOptions="Center" 

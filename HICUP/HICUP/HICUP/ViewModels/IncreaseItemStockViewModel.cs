@@ -12,36 +12,38 @@ using Xamarin.Forms;
 
 namespace HICUP.ViewModels
 {
-    public class AddItemViewModel : BaseInventoryViewModel
+    class IncreaseItemStockViewModel: BaseInventoryViewModel
     {
-        public ICommand AddItemCommand { get; private set; }
 
-        public AddItemViewModel(INavigation navigation)
+        public ICommand RemoveItemCommand { get; private set; }
+
+        public IncreaseItemStockViewModel(INavigation navigation)
         {
             _navigation = navigation;
             _inventoryValidator = new InventoryValidator();
             _item = new Inventory();
             _inventoryRepo = new InventoryRepo();
 
-            AddItemCommand = new Command(async () => await AddItem());
+            RemoveItemCommand = new Command(async () => await RemoveItem());
+
         }
 
-        async Task AddItem()
+        async Task RemoveItem()
         {
             var validationResults = _inventoryValidator.Validate(_item);
 
-            if (validationResults.IsValid)
+            if(validationResults.IsValid)
             {
-                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Add Item", "Do you want to add this item to your inventory?", "OK", "Cancel");
+                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Increase Item", "Add Item Quantity?", "Ok", "Cancel");
                 if (isUserAccept)
                 {
-                    _inventoryRepo.InsertItem(_item);
-                    await _navigation.PushAsync(new ShoppingMode());
+                    _inventoryRepo.UpdateItem(_item);
+                    await _navigation.PopAsync();
                 }
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Add Item", validationResults.Errors[0].ErrorMessage, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Remove Item", validationResults.Errors[0].ErrorMessage, "Ok");
             }
         }
     }

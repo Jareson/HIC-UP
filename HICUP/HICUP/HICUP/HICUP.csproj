@@ -13,16 +13,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AddNewItem.xaml.cs">
+      <DependentUpon>AddNewItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\IncreaseItemStock.xaml.cs">
+      <DependentUpon>IncreaseItemStock.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ViewItem.xaml.cs">
       <DependentUpon>ViewItem.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\RemoveItem.xaml.cs">
-      <DependentUpon>RemoveItem.xaml</DependentUpon>
+    <Compile Update="Views\ReduceItemStock.xaml.cs">
+      <DependentUpon>ReduceItemStock.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AddItem.xaml">
+    <EmbeddedResource Update="Views\AddNewItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\IncreaseItemStock.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ModifyItem.xaml">

@@ -40,6 +40,15 @@ namespace HICUP.Data
             }
         }
 
+        //Get Specific Item By Name
+        public Inventory GetItemByName(string item)
+        {
+            lock (locker)
+            {
+                return database.Table<Inventory>().FirstOrDefault(x => x.Item == item.ToUpper());
+            }
+        }
+
         //Update Item
         public void UpdateItem(Inventory item)
         {

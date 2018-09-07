@@ -7,16 +7,17 @@ using HICUP.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace HICUP
+namespace HICUP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ShoppingMode : ContentPage
+	public partial class ReduceItemStock : ContentPage
 	{
-        public ShoppingMode ()
-        {
+		public ReduceItemStock()
+		{
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            this.BindingContext = new ShoppingModeViewModel(Navigation);
+            this.BindingContext = new ReduceItemStockViewModel(Navigation);
         }
+
     }
 }

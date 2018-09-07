@@ -4,7 +4,7 @@
              x:Class="HICUP.MainPage"
              Title="HIC-UP">
     <StackLayout>
-        <Label Text="Hello World!" 
+        <Label Text="Hello Friend!" 
                FontSize="30"
                HorizontalOptions="Center" 
                VerticalOptions="StartAndExpand" />
@@ -13,7 +13,7 @@
                WidthRequest="100"
                HorizontalOptions="Center" 
                VerticalOptions="StartAndExpand"/>
-        <StackLayout Orientation="Horizontal">
+        <!--<StackLayout Orientation="Horizontal">
             <StackLayout Spacing="0" 
                          Orientation="Horizontal" 
                          HorizontalOptions="Start">
@@ -28,23 +28,25 @@
                        HorizontalOptions="End" 
                        VerticalOptions="StartAndExpand" />
             </StackLayout>
-        </StackLayout>
+        </StackLayout>-->
         <StackLayout Spacing="0">
             <Button x:Name="shoppingModeButton" 
-                    Text="Shopping Mode" 
+                    Text="Shopping Mode"
+                    Command="{Binding ShoppingModeCommand}" 
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
                     Clicked="OnShoppingMode"/>
             <Button x:Name="inventoryButton" 
-                    Text="Inventory" 
+                    Text="Inventory"
+                    Command="{Binding ViewInventoryCommand}"
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
                     IsEnabled="False"/>
-            <Button x:Name="searchItemButton" 
-                    Text="Search Item" 
+            <Button x:Name="deleteInventory" 
+                    Text="Delete Entire Inventory"
+                    Command="{Binding DeleteInventoryCommand}"
                     HeightRequest="75" 
-                    VerticalOptions="CenterAndExpand"
-                    IsEnabled="False"/>
+                    VerticalOptions="CenterAndExpand"/>
             <Button x:Name="settingsButton" 
                     Text="Coming Soon!" 
                     HeightRequest="75" 

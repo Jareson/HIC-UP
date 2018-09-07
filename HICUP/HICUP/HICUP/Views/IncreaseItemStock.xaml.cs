@@ -10,13 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace HICUP.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddItem : ContentPage
+	public partial class IncreaseItemStock : ContentPage
 	{
-		public AddItem()
+		public IncreaseItemStock()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            this.BindingContext = new AddItemViewModel(Navigation);
+            this.BindingContext = new IncreaseItemStockViewModel(Navigation);
         }
 	}
 }

@@ -1,6 +1,11 @@
-﻿using HICUP.Views;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HICUP.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace HICUP
 {
@@ -10,21 +15,7 @@ namespace HICUP
 		{
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-		}
-
-        async void OnShoppingMode(Object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new ShoppingMode());
-        }
-
-        async void OnViewInventory()
-        {
-            await Navigation.PushAsync(new ViewInventory());
-        }
-
-        void OnSettings()
-        {
-            
+            this.BindingContext = new MainPageViewModel(Navigation);
         }
     }
 }

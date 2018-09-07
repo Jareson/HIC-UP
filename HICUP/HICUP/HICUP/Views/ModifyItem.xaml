@@ -9,35 +9,69 @@
                    HorizontalOptions="Center"
                    VerticalOptions="StartAndExpand"/>
             <StackLayout Spacing="0">
-                <Entry x:Name="itemName"                       
-                        VerticalOptions="StartAndExpand"
-                        HorizontalOptions="Center"/>
-                <Entry x:Name="itemMeasurement"
-                       HorizontalTextAlignment="Start"
+                <Entry x:Name="itemName"
+                       Text="{Binding Item}"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
+                <Picker x:Name="itemMeasurement"
+                       Title="Select a Measurement"                        
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"
+                        ItemDisplayBinding="{Binding ItemMeasurement}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>tsp</x:String>
+                            <x:String>tbsp</x:String>
+                            <x:String>fl oz</x:String>
+                            <x:String>cup</x:String>
+                            <x:String>pint</x:String>
+                            <x:String>quart</x:String>
+                            <x:String>gallon</x:String>
+                            <x:String>mL</x:String>
+                            <x:String>L</x:String>
+                            <x:String>dL</x:String>
+                            <x:String>lb(s)</x:String>
+                            <x:String>oz</x:String>
+                            <x:String>mg</x:String>
+                            <x:String>g</x:String>
+                            <x:String>kg</x:String>
+                            <x:String>mm</x:String>
+                            <x:String>cm</x:String>
+                            <x:String>m</x:String>
+                            <x:String>inch</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
                 <Entry x:Name="itemQuantity"
+                       Text="{Binding ItemQuantity}"
+                       Keyboard="Numeric"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
                 <Entry x:Name="price"
+                       Text="{Binding ItemPrice}"
+                       Placeholder="Price"
                        PlaceholderColor="Gray"
+                       Keyboard="Numeric"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
                 <Entry x:Name="location"
+                       Text="{Binding ItemLocation}"
+                       Placeholder="Location"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <DatePicker x:Name="date"                            
+                <DatePicker x:Name="date"
+                            Date="{Binding PurchaseDate}"
                             VerticalOptions="StartAndExpand"
                             HorizontalOptions="Center"/>
-                <Button x:Name="saveItem" 
+                <Button x:Name="saveItem"
                         Text="Save Changes"
                         HorizontalOptions="Center" 
                         VerticalOptions="StartAndExpand"
-                        Clicked="OnSaveItem"/>
+                        Command="{Binding UpdateItemCommand}"/>
             </StackLayout>
             <Label x:Name="itemID"
                    IsVisible="False"/>

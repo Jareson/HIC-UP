@@ -22,21 +22,23 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Item}" 
-                                   Grid.Row="0" 
-                                   Font="20" 
-                                   TextColor="Black" />
-                            <Label Text="{Binding PurchaseDate, StringFormat='Last Purchase: {0:F0}'}" 
-                                   Grid.Row="0"   
-                                   Grid.Column="1" 
-                                   HorizontalOptions="EndAndExpand" 
-                                   HorizontalTextAlignment="End" 
-                                   TextColor="Black" />
-                            <Label Text="{Binding ItemQuantity}" 
-                                   Grid.Row="1" 
-                                   Grid.Column="0" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   TextColor="Black" />
-                            </Grid>                                
+                                       Grid.Row="0" 
+                                       Font="20" 
+                                       TextColor="Black" />
+                                <Label Text="{Binding PurchaseDate, StringFormat='Last Purchase: {0:F0}'}" 
+                                       Grid.Row="0"   
+                                       Grid.Column="1" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="Black" />
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="1" 
+                                             Grid.Column="0">
+                                    <Label Text="{Binding QuantityView}"  
+                                           HorizontalOptions="FillAndExpand" 
+                                           TextColor="Black" />
+                                </StackLayout>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

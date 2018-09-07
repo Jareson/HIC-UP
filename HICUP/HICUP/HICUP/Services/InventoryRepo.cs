@@ -25,6 +25,11 @@ namespace HICUP.Services
             return _inventoryDatabaseController.GetItem(itemID);
         }
 
+        public Inventory GetItemByName(string item)
+        {
+            return _inventoryDatabaseController.GetItemByName(item);
+        }
+
         public void UpdateItem(Inventory item)
         {
             _inventoryDatabaseController.UpdateItem(item);

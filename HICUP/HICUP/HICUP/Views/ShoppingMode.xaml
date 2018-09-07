@@ -10,17 +10,25 @@
                HorizontalOptions="Center" 
                VerticalOptions="Start" />
             <StackLayout Spacing="1">
-                <Button x:Name="addItemButton"                        
-                        Text="Add Item"
+                <Button x:Name="addNewItemButton"                        
+                        Text="Add New Item"
                         HeightRequest="170"
                         VerticalOptions="CenterAndExpand"
-                        Clicked="OnAddItem"
+                        Command="{Binding AddItemCommand}"
                         />
-                <Button x:Name="removeItemButton"                        
-                        Text="Remove Item"
+                <Button x:Name="increaseItemStockButton"
+                        Text="Increase Item Stock"
                         HeightRequest="170"
                         VerticalOptions="CenterAndExpand"
-                        Clicked="OnRemoveItem"
+                        IsEnabled="False"
+                        Command="{Binding IncreaseItemStockCommand}"
+                        />
+                <Button x:Name="reduceItemStockButton"
+                        Text="Reduce Item Stock"
+                        HeightRequest="170"
+                        VerticalOptions="CenterAndExpand"
+                        IsEnabled="False"
+                        Command="{Binding ReduceItemStockCommand}"
                         />
             </StackLayout>
         </StackLayout>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HICUP.Views.AddItem">
+             x:Class="HICUP.Views.AddNewItem">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Add Item"
@@ -16,13 +16,35 @@
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Entry x:Name="itemMeasurement"
-                       Text="{Binding ItemMeasurement}"
-                       Placeholder="Item Measurement"
-                       PlaceholderColor="Gray"
-                       HorizontalTextAlignment="Start"
+                <Picker x:Name="itemMeasurement"
+                       Title="Select a Measurement"                        
                        VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center"
+                        ItemDisplayBinding="{Binding ItemMeasurement}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>tsp</x:String>
+                            <x:String>tbsp</x:String>
+                            <x:String>fl oz</x:String>
+                            <x:String>cup</x:String>
+                            <x:String>pint</x:String>
+                            <x:String>quart</x:String>
+                            <x:String>gallon</x:String>
+                            <x:String>mL</x:String>
+                            <x:String>L</x:String>
+                            <x:String>dL</x:String>
+                            <x:String>lb(s)</x:String>
+                            <x:String>oz</x:String>
+                            <x:String>mg</x:String>
+                            <x:String>g</x:String>
+                            <x:String>kg</x:String>
+                            <x:String>mm</x:String>
+                            <x:String>cm</x:String>
+                            <x:String>m</x:String>
+                            <x:String>inch</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
                 <Entry x:Name="itemQuantity"
                        Text="{Binding ItemQuantity}"
                        Keyboard="Numeric"
@@ -48,9 +70,9 @@
                        HorizontalOptions="Center"/>
                 <Button x:Name="addItem" 
                         Command="{Binding AddItemCommand}"
-                    Text="Add to Inventory"
-                    HorizontalOptions="Center" 
-                    VerticalOptions="StartAndExpand" />
+                        Text="Add to Inventory"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="StartAndExpand" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

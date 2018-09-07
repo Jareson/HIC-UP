@@ -12,37 +12,30 @@ using Xamarin.Forms;
 
 namespace HICUP.ViewModels
 {
-    class ModifyItemViewModel : BaseInventoryViewModel
+    class ReduceItemStockViewModel: BaseInventoryViewModel
     {
-        public ICommand UpdateItemCommand { get; private set; }
 
-        public ModifyItemViewModel(INavigation navigation, int selectedItemID)
+        public ICommand RemoveItemCommand { get; private set; }
+
+        public ReduceItemStockViewModel(INavigation navigation)
         {
             _navigation = navigation;
             _inventoryValidator = new InventoryValidator();
             _item = new Inventory();
-            _item.Id = selectedItemID;
             _inventoryRepo = new InventoryRepo();
 
-            UpdateItemCommand = new Command(async () => await UpdateItem());
-
-            FetchItem();
+            RemoveItemCommand = new Command(async () => await RemoveItem());
 
         }
 
-        void FetchItem()
-        {
-            _item = _inventoryRepo.GetItem(_item.Id);
-        }
 
-
-        async Task UpdateItem()
+        async Task RemoveItem()
         {
             var validationResults = _inventoryValidator.Validate(_item);
 
-            if (validationResults.IsValid)
+            if(validationResults.IsValid)
             {
-                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Update Item", "Save Item Details?", "OK", "Cancel");
+                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Remove Item", "Reduce Item Quantity?", "Ok", "Cancel");
                 if (isUserAccept)
                 {
                     _inventoryRepo.UpdateItem(_item);
@@ -51,7 +44,7 @@ namespace HICUP.ViewModels
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Modify Item", validationResults.Errors[0].ErrorMessage, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Remove Item", validationResults.Errors[0].ErrorMessage, "Ok");
             }
         }
     }

@@ -13,6 +13,9 @@ namespace HICUP.Services
         //Get Specific Item
         Inventory GetItem(int itemID);
 
+        //Get Specifc Item By name
+        Inventory GetItemByName(string item);
+
         //Update Item
         void UpdateItem(Inventory item);
 

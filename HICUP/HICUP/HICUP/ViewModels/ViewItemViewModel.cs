@@ -15,6 +15,7 @@ namespace HICUP.ViewModels
 {
     class ViewItemViewModel : BaseInventoryViewModel
     {
+        public ICommand ModifyItemCommand { get; private set; }
         public ICommand DeleteItemCommand { get; private set; }
 
         public ViewItemViewModel(INavigation navigation, int selectedItemID)
@@ -25,6 +26,7 @@ namespace HICUP.ViewModels
             _item.Id = selectedItemID;
             _inventoryRepo = new InventoryRepo();
 
+            ModifyItemCommand = new Command(async () => await ModifyItem());
             DeleteItemCommand = new Command(async () => await DeleteItem());
 
             FetchItem();
@@ -33,6 +35,11 @@ namespace HICUP.ViewModels
         void FetchItem()
         {
             _item = _inventoryRepo.GetItem(_item.Id);
+        }
+
+        async Task ModifyItem()
+        {
+            await _navigation.PushAsync(new ModifyItem(_item.Id));
         }
 
         async Task DeleteItem()

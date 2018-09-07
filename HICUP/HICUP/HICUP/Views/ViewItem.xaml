@@ -10,32 +10,44 @@
                    VerticalOptions="StartAndExpand"/>
             <StackLayout Spacing="0">
                 <Label x:Name="itemName"
+                       Text="{Binding Item}"
                         VerticalOptions="StartAndExpand"
                         HorizontalOptions="Center"/>
                 <Label x:Name="itemMeasurement"
+                       Text="{Binding ItemMeasurement}"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
                 <Label x:Name="itemQuantity"
+                       Text="{Binding ItemQuantity}"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Label x:Name="price"
+                <Label x:Name="itemPrice"
+                       Text="{Binding ItemPrice}"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Label x:Name="location"
+                <Label x:Name="itemLocation"
+                       Text="{Binding ItemLocation}"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
-                <Label x:Name="date"
+                <Label x:Name="itemDate"
+                       Text="{Binding PurchaseDate, StringFormat=' {0:F0} '}"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="Center"/>
                 <Button x:Name="modifyItem" 
                         Text="Modify this Item"
                         HorizontalOptions="Center" 
-                        VerticalOptions="StartAndExpand"/>
+                        VerticalOptions="StartAndExpand"
+                        Clicked="OnModifyItem"/>
+                <Button x:Name="deleteItem" 
+                        Text="Delete this Item"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="StartAndExpand"
+                        Command="{Binding DeleteItemCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

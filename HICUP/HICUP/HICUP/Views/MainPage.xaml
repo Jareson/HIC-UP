@@ -44,8 +44,7 @@
                     Text="Search Item" 
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"
-                    IsEnabled="False"
-                    Clicked="OnSearchItem"/>
+                    IsEnabled="False"/>
             <Button x:Name="settingsButton" 
                     Text="Coming Soon!" 
                     HeightRequest="75" 

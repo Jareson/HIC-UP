@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HICUP.Android", "HICUP\HICUP.Android\HICUP.Android.csproj", "{0F28FD08-50C8-41B0-B6FB-EE3E4F4EFD3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HICUP", "HICUP\HICUP\HICUP.csproj", "{C6E0FF3D-1C3E-491B-8DD1-D8D6576EFA51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HICUP", "HICUP\HICUP\HICUP.csproj", "{C6E0FF3D-1C3E-491B-8DD1-D8D6576EFA51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

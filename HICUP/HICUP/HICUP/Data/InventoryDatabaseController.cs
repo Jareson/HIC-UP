@@ -14,6 +14,7 @@ namespace HICUP.Data
 
         SQLiteConnection database;
 
+        //Create Table
         public InventoryDatabaseController()
         {
             database = DependencyService.Get<IDatabaseConnection>().GetConnection();
@@ -21,7 +22,8 @@ namespace HICUP.Data
 
         }
 
-        public IEnumerable<Inventory> GetInventory()
+        //Get Entire Inventory
+        public List<Inventory> GetInventory()
         {
             lock (locker)
             {
@@ -29,52 +31,50 @@ namespace HICUP.Data
             }
         }
 
-        public Inventory CheckItem(string item, int family)
+        //Get Specific Item
+        public Inventory GetItem(int id)
         {
             lock (locker)
             {
-                return database.Table<Inventory>().FirstOrDefault(x => x.Item == item && x.FamilyId == family);
+                return database.Table<Inventory>().FirstOrDefault(x => x.Id == id);
             }
         }
 
-        public Inventory CheckItem(int itemID, int family)
+        //Update Item
+        public void UpdateItem(Inventory item)
         {
             lock (locker)
             {
-                return database.Table<Inventory>().FirstOrDefault(x => x.ItemID == itemID && x.FamilyId == family);
+                database.Update(item);
             }
         }
 
-
-        public List<Inventory> ViewInventory(int familyID)
+        //Add New Item
+        public void InsertItem(Inventory inventory)
         {
             lock (locker)
             {
-                return database.Table<Inventory>().Where(x => x.FamilyId == familyID).ToList();
+                database.Insert(inventory);
             }
         }
 
-        public int UpdateItem(Inventory item)
-        {
-            lock (locker)
-            { 
-                return database.Update(item);
-            }
-        }
-        public int SaveInventory(Inventory inventory)
-        {
-            lock (locker)
-            { 
-                    return database.Insert(inventory);
-            }
-        }
-
-        public int DeleteInventory(int id)
+        //Delete Entire Inventory
+        public void DeleteInventory()
         {
             lock (locker)
             {
-                return database.Delete<Inventory>(id);
+                database.DeleteAll<Inventory>();
             }
         }
+
+        //Delete Specific Item
+        public void DeleteInventoryItem(int id)
+        {
+            lock (locker)
+            {
+                database.Delete<Inventory>(id);
+            }
+        }
+
     }
 }

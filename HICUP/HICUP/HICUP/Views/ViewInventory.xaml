@@ -2,42 +2,45 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.Views.ViewInventory">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Name ="plainButton" x:Key="plainButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="White"/>
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="BorderRadius" Value="0"/>
-                <Setter Property="FontSize" Value="40" />
-            </Style>
-            <Style x:Name="plainLabel" x:Key="plainLabel" TargetType="Label">
-                <Setter Property="BackgroundColor" Value="White"/>
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="FontSize" Value="40" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <Grid x:Name="inventoryGrid" RowSpacing="1" ColumnSpacing="1" BackgroundColor="#404040">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Text="Inventory" FontSize="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" />
-                <Button x:Name="item" Text="Item" Grid.Row="1" Grid.Column="0" Style="{StaticResource plainButton}" />
-                <Button x:Name="quantity" Text="Quantity" Grid.Row="1" Grid.Column="1" Style="{StaticResource plainButton}" />
-                <Button x:Name="price" Text="Cheapest Price" Grid.Row="1" Grid.Column="2" Style="{StaticResource plainButton}" />
-                <Button x:Name="location" Text="Price Location" Grid.Row="1" Grid.Column="3" Style="{StaticResource plainButton}" />
-                <Button x:Name="date" Text="Last Purchase Date" Grid.Row="1" Grid.Column="4" Style="{StaticResource plainButton}" />
-            </Grid>
+            <ListView x:Name="inventory" 
+                      HasUnevenRows="true" 
+                      SeparatorColor="Black" 
+                      ItemsSource="{Binding InventoryList}" 
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid  Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Item}" 
+                                   Grid.Row="0" 
+                                   Font="20" 
+                                   TextColor="Black" />
+                            <Label Text="{Binding PurchaseDate, StringFormat='Last Purchase: {0:F0}'}" 
+                                   Grid.Row="0"   
+                                   Grid.Column="1" 
+                                   HorizontalOptions="EndAndExpand" 
+                                   HorizontalTextAlignment="End" 
+                                   TextColor="Black" />
+                            <Label Text="{Binding ItemQuantity}" 
+                                   Grid.Row="1" 
+                                   Grid.Column="0" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   TextColor="Black" />
+                            </Grid>                                
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

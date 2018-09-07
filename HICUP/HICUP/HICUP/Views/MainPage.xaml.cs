@@ -17,14 +17,9 @@ namespace HICUP
             await Navigation.PushAsync(new ShoppingMode());
         }
 
-        void OnViewInventory()
+        async void OnViewInventory()
         {
-            inventoryButton.IsEnabled = false;
-        }
-
-        async void OnSearchItem()
-        {
-            await Navigation.PushAsync(new SearchItem());
+            await Navigation.PushAsync(new ViewInventory());
         }
 
         void OnSettings()

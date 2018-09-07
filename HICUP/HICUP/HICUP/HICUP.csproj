@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.0.100" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.166-beta" />
     <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="Xamarin.Essentials" Version="0.9.1-preview" />
@@ -12,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\SearchItem.xaml.cs">
-      <DependentUpon>SearchItem.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\ViewItem.xaml.cs">
       <DependentUpon>ViewItem.xaml</DependentUpon>
     </Compile>
@@ -40,9 +38,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ViewInventory.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\SearchItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

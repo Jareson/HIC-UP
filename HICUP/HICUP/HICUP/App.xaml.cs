@@ -16,20 +16,20 @@ namespace HICUP
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
         static FamilyDatabaseController familyDatabase;
-        static InventoryDatabaseController inventoryDatabase;
+        //static InventoryDatabaseController inventoryDatabase;
 
         public App()
         {
             InitializeComponent();
-            if (Constants.userToken.ExpireDate < DateTime.Now)
+            /*if (Constants.userToken.ExpireDate < DateTime.Now)
             {
                 App.TokenDatabase.DeleteToken(Constants.userToken.Id);
                 MainPage = new NavigationPage(new UserLogin());
             }
             else
-            {
-                MainPage = new NavigationPage(new MainPage());
-            }
+            {*/
+            MainPage = new NavigationPage(new MainPage());
+            //}
 
         }
 
@@ -84,17 +84,17 @@ namespace HICUP
                 return familyDatabase;
             }
         }
-        public static InventoryDatabaseController InventoryDatabase
-        {
-            get
-            {
-                if (inventoryDatabase == null)
-                {
-                    inventoryDatabase = new InventoryDatabaseController();
-                }
-                return inventoryDatabase;
-            }
-        }
+        //public static InventoryDatabaseController InventoryDatabase
+        //{
+        //    get
+        //    {
+        //        if (inventoryDatabase == null)
+        //        {
+        //            inventoryDatabase = new InventoryDatabaseController();
+        //        }
+        //        return inventoryDatabase;
+        //    }
+        //}
 
 
     }

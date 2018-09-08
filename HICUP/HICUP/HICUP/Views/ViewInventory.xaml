@@ -2,11 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.Views.ViewInventory">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, UWP" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
-        <ScrollView>
-            <ListView x:Name="inventory" 
-                      HasUnevenRows="true" 
-                      SeparatorColor="Black" 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="Your Inventory"
+                   Grid.Row="0"
+                   FontSize="30"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"/>
+            <ListView x:Name="inventory"
+                      Margin="10"
+                      Grid.Row="1"
+                      HasUnevenRows="True" 
+                      SeparatorColor="Black"                      
                       ItemsSource="{Binding InventoryList}" 
                       SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                 <ListView.ItemTemplate>
@@ -19,13 +37,13 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Item}" 
                                        Grid.Row="0" 
                                        Font="20" 
                                        TextColor="Black" />
-                                <Label Text="{Binding PurchaseDate, StringFormat='Last Purchase: {0:F0}'}" 
+                                <Label Text="{Binding PurchaseDate, StringFormat='Last Purchase: {0:MM/dd/yyyy}'}" 
                                        Grid.Row="0"   
                                        Grid.Column="1" 
                                        HorizontalOptions="EndAndExpand" 
@@ -33,16 +51,21 @@
                                        TextColor="Black" />
                                 <StackLayout Orientation="Horizontal"
                                              Grid.Row="1" 
-                                             Grid.Column="0">
-                                    <Label Text="{Binding QuantityView}"  
-                                           HorizontalOptions="FillAndExpand" 
-                                           TextColor="Black" />
+                                             Grid.Column="0"
+                                             Spacing="0">
+                                    <Label x:Name="itemQuantity" 
+                                           Text="{Binding ItemQuantity}"
+                                           TextColor="Black"/>
+                                    <Label Text=" "/>
+                                    <Label x:Name="itemMeasurment" 
+                                           Text="{Binding ItemMeasurement}"
+                                           TextColor="Black"/>
                                 </StackLayout>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

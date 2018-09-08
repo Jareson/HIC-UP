@@ -54,7 +54,7 @@ namespace HICUP.ViewModels
             get => _item.ItemPrice;
             set
             {
-                _item.ItemPrice = value;
+                _item.ItemPrice = Math.Round(value, 2);
                 NotifyPropertyChanged("ItemPrice");
             }
         }
@@ -74,25 +74,9 @@ namespace HICUP.ViewModels
             get => _item.PurchaseDate;
             set
             {
-                if (value != null)
-                {
+
                     _item.PurchaseDate = value;
                     NotifyPropertyChanged("PurchaseDate");
-                }
-                else
-                {
-                    _item.PurchaseDate = DateTime.Today;
-                    NotifyPropertyChanged("PurchaseDate");
-                }
-            }
-        }
-
-        public string QuantityView
-        {
-
-            get
-            {
-                return string.Format("{0} {1}.", ItemQuantity, ItemMeasurement);
             }
         }
 

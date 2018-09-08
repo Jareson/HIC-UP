@@ -11,15 +11,18 @@ namespace HICUP.Validator
 {
     public class InventoryValidator : AbstractValidator<Inventory>
     {
-        private IInventoryRepo _inventoryRepo = new InventoryRepo();
-        private List<Inventory> FullInventory = new List<Inventory>();
+        //private IInventoryRepo _inventoryRepo = new InventoryRepo();
+        //private List<Inventory> FullInventory = new List<Inventory>();
 
         public InventoryValidator()
         {
             RuleFor(c => c.Item).Must(n => ValidateStringEmpty(n)).WithMessage("Item name should not be empty.");
-            RuleFor(c => c.Item).Must(n => !IsDuplicate(n)).WithMessage("This Item Already Exists!");
             RuleFor(c => c.ItemMeasurement).Must(n => ValidateStringEmpty(n)).WithMessage("Item Measurement should not be empty.");
-            RuleFor(c => c.ItemQuantity).NotNull();
+            RuleFor(c => c.ItemQuantity).Must(n => ValidateAboveZero(n)).WithMessage("You cannot go below 0 of an item");
+            //RuleSet("Insert", () =>
+            //{
+            //    RuleFor(c => c.Item).Must(n => !IsDuplicate(n)).WithMessage("This Item Already Exists!");
+            //});
         }
 
         bool ValidateStringEmpty(string stringValue)
@@ -29,17 +32,25 @@ namespace HICUP.Validator
             return false;
         }
 
-        private bool IsDuplicate(string item)
+        bool ValidateAboveZero(int intValue)
         {
-
-            getInventory();
-            return FullInventory.Any(x => x.Item == item.ToUpper());
-
+            if (intValue > 0)
+                return true;
+            return false;
         }
 
-        void getInventory()
-        {
-            FullInventory = _inventoryRepo.GetInventory();
-        }
+        //private bool IsDuplicate(string item)
+        //{
+
+        //    getInventory();
+        //    return FullInventory.Any(x => x.Item == item.ToUpper());
+
+        //}
+
+        //void getInventory()
+        //{
+        //    FullInventory = _inventoryRepo.GetInventory();
+        //}
+
     }
 }

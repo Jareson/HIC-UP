@@ -3,12 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.ShoppingMode"
              Title="Shopping Mode">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, UWP" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="intro" Text="Shopping Mode"
-               FontSize="30"
-               HorizontalOptions="Center" 
-               VerticalOptions="Start" />
+                   FontSize="30"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start" 
+                   />
             <StackLayout Spacing="1">
                 <Button x:Name="addNewItemButton"                        
                         Text="Add New Item"
@@ -20,15 +27,13 @@
                         Text="Increase Item Stock"
                         HeightRequest="170"
                         VerticalOptions="CenterAndExpand"
-                        IsEnabled="False"
-                        <!--Command="{Binding IncreaseItemStockCommand}"-->
+                        Command="{Binding IncreaseItemStockCommand}"
                         />
                 <Button x:Name="reduceItemStockButton"
                         Text="Reduce Item Stock"
                         HeightRequest="170"
                         VerticalOptions="CenterAndExpand"
-                        IsEnabled="False"
-                        <!--Command="{Binding ReduceItemStockCommand}"-->
+                        Command="{Binding ReduceItemStockCommand}"
                         />
             </StackLayout>
         </StackLayout>

@@ -18,6 +18,11 @@ namespace HICUP.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             this.BindingContext = new ViewItemViewModel(Navigation, itemID);
-		}
+        }
+
+        //protected override void OnAppearing()
+        //{
+        //    this.BindingContext = new ViewItemViewModel(Navigation, itemID);
+        //}
     }
 }

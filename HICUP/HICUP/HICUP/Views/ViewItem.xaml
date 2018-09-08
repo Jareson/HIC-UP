@@ -2,51 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.Views.ViewItem">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, UWP" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="View Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="StartAndExpand"/>
+                   VerticalOptions="Start"/>
             <StackLayout Spacing="0">
                 <Label x:Name="itemName"
                        Text="{Binding Item}"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Label x:Name="itemMeasurement"
                        Text="{Binding ItemMeasurement}"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Label x:Name="itemQuantity"
                        Text="{Binding ItemQuantity}"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Label x:Name="itemPrice"
-                       Text="{Binding ItemPrice}"
+                       Text="{Binding ItemPrice, StringFormat='${0}'}"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Label x:Name="itemLocation"
                        Text="{Binding ItemLocation}"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Label x:Name="itemDate"
-                       Text="{Binding PurchaseDate, StringFormat=' {0:F0} '}"
+                       Text="{Binding PurchaseDate, StringFormat=' {0:MM/dd/yyyy} '}"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Button x:Name="modifyItem" 
                         Text="Modify this Item"
-                        HorizontalOptions="Center" 
-                        VerticalOptions="StartAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="End"
                         Command="{Binding ModifyItemCommand}"/>
                 <Button x:Name="deleteItem" 
                         Text="Delete this Item"
-                        HorizontalOptions="Center" 
-                        VerticalOptions="StartAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="End"
                         Command="{Binding DeleteItemCommand}"/>
             </StackLayout>
         </StackLayout>

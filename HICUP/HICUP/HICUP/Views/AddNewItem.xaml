@@ -2,26 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.Views.AddNewItem">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, UWP" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Add Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="StartAndExpand"/>
+                   VerticalOptions="Start"/>
             <StackLayout Spacing="0">
                 <Entry x:Name="itemName"
                        Text="{Binding Item}"
                        Placeholder="Item Name"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Picker x:Name="itemMeasurement"
                         Title="Select a Measurement"                        
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"
                         SelectedItem="{Binding ItemMeasurement}">
                     <Picker.Items>
+                        <x:String>Each</x:String>
+                        <x:String>mL</x:String>
                         <x:String>Tsp</x:String>
                         <x:String>Tbsp</x:String>
                         <x:String>Fl Oz</x:String>
@@ -29,7 +37,6 @@
                         <x:String>Pint(s)</x:String>
                         <x:String>Quart(s)</x:String>
                         <x:String>Gallon(s)</x:String>
-                        <x:String>mL</x:String>
                         <x:String>L</x:String>
                         <x:String>dL</x:String>
                         <x:String>Lb(s)</x:String>
@@ -44,33 +51,33 @@
                     </Picker.Items>
                 </Picker>
                 <Entry x:Name="itemQuantity"
-                       Text="{Binding ItemQuantity}"
+                       Text="{Binding ItemQuantity, Mode=OneWayToSource}"
                        Keyboard="Numeric"
                        Placeholder="Item Quantity"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemPrice"
-                       Text="{Binding ItemPrice}"
+                       Text="{Binding ItemPrice, Mode=OneWayToSource}"
                        Placeholder="Price (Optional)"
                        Keyboard="Numeric"
                        PlaceholderColor="Gray"
-                       HorizontalTextAlignment="Center"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemLocation"
                        Text="{Binding ItemLocation}"
                        Placeholder="Location of Purchase (Optional)"
                        PlaceholderColor="Gray"
-                       HorizontalTextAlignment="Center"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Button x:Name="addItem" 
                         Command="{Binding AddItemCommand}"
                         Text="Add to Inventory"
-                        HorizontalOptions="Center" 
-                        VerticalOptions="EndAndExpand" />
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="End" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -2,21 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HICUP.Views.ModifyItem">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, UWP" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="View"
+            <Label Text="Modify Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="StartAndExpand"/>
+                   VerticalOptions="Start"/>
             <StackLayout Spacing="0">
                 <Entry x:Name="itemName"
                        Text="{Binding Item}"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Picker x:Name="itemMeasurement"
                         Title="{Binding ItemMeasurement}"                        
-                        VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"
                         SelectedItem="{Binding ItemMeasurement}">
                     <Picker.Items>
                         <x:String>Tsp</x:String>
@@ -44,31 +50,31 @@
                        Text="{Binding ItemQuantity}"
                        Keyboard="Numeric"
                        HorizontalTextAlignment="Start"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemPrice"
                        Text="{Binding ItemPrice}"
                        Placeholder="Price"
                        PlaceholderColor="Gray"
                        Keyboard="Numeric"
-                       HorizontalTextAlignment="Center"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
-                <Entry x:Name="itemLocation"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="itemLocation"                       
                        Text="{Binding ItemLocation}"
                        Placeholder="Location"
                        PlaceholderColor="Gray"
-                       HorizontalTextAlignment="Center"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="Center"/>
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <DatePicker x:Name="purchaseDate"
                             Date="{Binding PurchaseDate}"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalOptions="Center"/>
+                            HorizontalOptions="FillAndExpand"/>
                 <Button x:Name="saveItem"
                         Text="Save Changes"
-                        HorizontalOptions="Center" 
-                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="End"
                         Command="{Binding UpdateItemCommand}"/>
             </StackLayout>
             <Label x:Name="itemID"

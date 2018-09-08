@@ -10,6 +10,7 @@ using HICUP.Validator;
 using HICUP.Views;
 using Xamarin.Forms;
 
+
 namespace HICUP.ViewModels
 {
     public class AddNewItemViewModel : BaseInventoryViewModel
@@ -35,8 +36,10 @@ namespace HICUP.ViewModels
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Add Item", "Do you want to add this item to your inventory?", "OK", "Cancel");
                 if (isUserAccept)
                 {
+                    _item.PurchaseDate = DateTime.Today;
+                    _item.ItemPrice = Math.Round(_item.ItemPrice / _item.ItemQuantity, 2);
                     _inventoryRepo.InsertItem(_item);
-                    await _navigation.PushAsync(new ShoppingMode());
+                    await _navigation.PopAsync();
                 }
             }
             else

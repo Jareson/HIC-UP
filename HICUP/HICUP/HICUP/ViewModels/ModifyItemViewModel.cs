@@ -45,7 +45,11 @@ namespace HICUP.ViewModels
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Update Item", "Save Item Details?", "OK", "Cancel");
                 if (isUserAccept)
                 {
-                    _inventoryRepo.UpdateItem(_item);
+                    _inventoryRepo.UpdateItem(_item);                    
+                    for (var counter = 1; counter < 2; counter++)
+                    {
+                        _navigation.RemovePage(_navigation.NavigationStack[_navigation.NavigationStack.Count - 2]);
+                    }
                     await _navigation.PopAsync();
                 }
             }

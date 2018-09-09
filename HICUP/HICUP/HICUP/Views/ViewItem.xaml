@@ -16,34 +16,37 @@
                    VerticalOptions="Start"/>
             <StackLayout Spacing="0">
                 <Label x:Name="itemName"
-                       Text="{Binding Item}"
+                       Text="{Binding Item, StringFormat='Item: {0}'}"
+                       FontSize="20"
                        VerticalOptions="Center"
-                       HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="itemMeasurement"
-                       Text="{Binding ItemMeasurement}"
-                       HorizontalTextAlignment="Start"
-                       VerticalOptions="Center"
-                       HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="itemQuantity"
-                       Text="{Binding ItemQuantity}"
-                       HorizontalTextAlignment="Start"
-                       VerticalOptions="Center"
-                       HorizontalOptions="FillAndExpand"/>
+                       HorizontalOptions="StartAndExpand"/>
+                <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="Center">
+                    <Label x:Name="itemQuantity"
+                           Text="{Binding ItemQuantity, StringFormat='Total Quantity: {0} '}"
+                           FontSize="20"/>
+                    <Label x:Name="itemMeasurement"
+                           Text="{Binding ItemMeasurement}"
+                           FontSize="20"/>
+            </StackLayout>
                 <Label x:Name="itemPrice"
-                       Text="{Binding ItemPrice, StringFormat='${0}'}"
+                       Text="{Binding ItemPrice, StringFormat='Price per Quantity: {0:C}'}"
+                       FontSize="20"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
-                       HorizontalOptions="FillAndExpand"/>
+                       HorizontalOptions="StartAndExpand"/>
                 <Label x:Name="itemLocation"
-                       Text="{Binding ItemLocation}"
+                       Text="{Binding ItemLocation, StringFormat='Last Location Purchased: {0}'}"
+                       FontSize="20"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
-                       HorizontalOptions="FillAndExpand"/>
+                       HorizontalOptions="StartAndExpand"/>
                 <Label x:Name="itemDate"
-                       Text="{Binding PurchaseDate, StringFormat=' {0:MM/dd/yyyy} '}"
+                       Text="{Binding PurchaseDate, StringFormat='Last Purchase: {0:MM/dd/yyyy}'}"
+                       FontSize="20"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
-                       HorizontalOptions="FillAndExpand"/>
+                       HorizontalOptions="StartAndExpand"/>
                 <Button x:Name="modifyItem" 
                         Text="Modify this Item"
                         HorizontalOptions="FillAndExpand" 

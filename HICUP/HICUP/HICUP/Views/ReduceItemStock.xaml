@@ -18,18 +18,24 @@
                 <Picker x:Name="itemName"
                         Title="Select Item"                        
                         VerticalOptions="Center"
-                        HorizontalOptions="FillAndExpand"/>
-                <Entry x:Name="itemQuantity"
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding InventoryList}"
+                        ItemDisplayBinding="{Binding Item}"
+                        SelectedItem="{Binding Item}"/>
+                <Label Text="{Binding ItemQuantity, StringFormat='Current Quantity: {0]'}"/>
+                <Entry x:Name="adjustQuantity"
+                       Text="{Binding ValueAdjuster, Mode=OneWayToSource}"
                        Keyboard="Numeric"
-                       Placeholder="Item Quantity"
+                       Placeholder="Reduce By"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
-                <Button x:Name="reduceItem" 
-                    Text="Remove from Inventory"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="End" />
+                <Button x:Name="reduceItem"
+                        Text="Remove from Inventory"                       
+                        Command="{Binding RemoveItemStockCommand}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="End" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

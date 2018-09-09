@@ -15,7 +15,7 @@ namespace HICUP.ViewModels
     class IncreaseItemStockViewModel: BaseInventoryViewModel
     {
 
-        public ICommand RemoveItemCommand { get; private set; }
+        public ICommand IncreaseItemStockCommand { get; private set; }
 
         public IncreaseItemStockViewModel(INavigation navigation)
         {
@@ -24,26 +24,64 @@ namespace HICUP.ViewModels
             _item = new Inventory();
             _inventoryRepo = new InventoryRepo();
 
-            RemoveItemCommand = new Command(async () => await RemoveItem());
+            IncreaseItemStockCommand = new Command(async () => await IncreaseItemStock(SelectedItem.Id, ValueAdjuster));
+
+            FetchInventory();
 
         }
 
-        async Task RemoveItem()
+        void FetchInventory()
         {
+            InventoryList = _inventoryRepo.GetInventory();
+        }
+
+        async Task IncreaseItemStock(int selectedItemID, int ValueAdjuster)
+        {
+            _item = _inventoryRepo.GetItem(selectedItemID);
             var validationResults = _inventoryValidator.Validate(_item);
 
-            if(validationResults.IsValid)
+            if (validationResults.IsValid && !string.IsNullOrEmpty(ValueAdjuster.ToString()))
             {
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Increase Item", "Add Item Quantity?", "Ok", "Cancel");
                 if (isUserAccept)
                 {
+                    _item.ItemQuantity += ValueAdjuster;
                     _inventoryRepo.UpdateItem(_item);
                     await _navigation.PopAsync();
                 }
             }
-            else
+            else if (validationResults.IsValid == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Remove Item", validationResults.Errors[0].ErrorMessage, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Increase Item", validationResults.Errors[0].ErrorMessage, "Ok");
+            }
+            else if (string.IsNullOrEmpty(ValueAdjuster.ToString()) == true)
+            {
+                await Application.Current.MainPage.DisplayAlert("Increase Item", "'Increase By' cannot be empty!", "Ok");
+            }
+        }
+
+        Inventory _selectedItem;
+        public Inventory SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                if (value != null)
+                {
+                    _selectedItem = value;
+                    NotifyPropertyChanged("SelectedItem");
+                }
+            }
+        }
+
+        int _valueAdjuster;
+        public int ValueAdjuster
+        {
+            get => _valueAdjuster;
+            set
+            {
+                _valueAdjuster = value;
+                NotifyPropertyChanged("ValueAdjuster");
             }
         }
     }

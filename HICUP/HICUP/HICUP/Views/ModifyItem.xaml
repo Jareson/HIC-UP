@@ -15,8 +15,16 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Start"/>
             <StackLayout Spacing="0">
+                <Label Text="Item Name"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemName"
                        Text="{Binding Item}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Text="Item Measurement"
+                       HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
                 <Picker x:Name="itemMeasurement"
@@ -46,17 +54,29 @@
                         <x:String>Inch(es)</x:String>
                     </Picker.Items>
                 </Picker>
+                <Label Text="Item Quantity"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemQuantity"
                        Text="{Binding ItemQuantity}"
                        Keyboard="Numeric"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
+                <Label Text="Item Price"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemPrice"
-                       Text="{Binding ItemPrice}"
+                       Text="{Binding ItemPrice, StringFormat=' {0:C} '}"
                        Placeholder="Price"
                        PlaceholderColor="Gray"
                        Keyboard="Numeric"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Text="Item Location"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
@@ -64,6 +84,10 @@
                        Text="{Binding ItemLocation}"
                        Placeholder="Location"
                        PlaceholderColor="Gray"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Text="Last Purchase Date"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>

@@ -19,19 +19,19 @@
             <StackLayout Spacing="1">
                 <Button x:Name="addNewItemButton"                        
                         Text="Add New Item"
-                        HeightRequest="170"
+                        HeightRequest="165"
                         VerticalOptions="CenterAndExpand"
                         Command="{Binding AddNewItemCommand}"
                         />
                 <Button x:Name="increaseItemStockButton"
                         Text="Increase Item Stock"
-                        HeightRequest="170"
+                        HeightRequest="165"
                         VerticalOptions="CenterAndExpand"
                         Command="{Binding IncreaseItemStockCommand}"
                         />
                 <Button x:Name="reduceItemStockButton"
                         Text="Reduce Item Stock"
-                        HeightRequest="170"
+                        HeightRequest="165"
                         VerticalOptions="CenterAndExpand"
                         Command="{Binding ReduceItemStockCommand}"
                         />

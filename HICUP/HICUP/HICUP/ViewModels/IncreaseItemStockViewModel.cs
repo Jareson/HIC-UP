@@ -38,9 +38,7 @@ namespace HICUP.ViewModels
         async Task IncreaseItemStock(Inventory selectedItem, int ValueAdjuster, decimal NewPrice, string NewLocation)
         {
             bool checkEmptyItem = selectedItem != null;
-            bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);
-            decimal NewItemPrice = NewPrice / ValueAdjuster;
-
+            bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);           
 
             if (checkEmptyItem && notEmptyValueAdjuster)
             {
@@ -48,6 +46,7 @@ namespace HICUP.ViewModels
                 if (isUserAccept)
                 {                    
                     _item = _inventoryRepo.GetItem(selectedItem.Id);
+                    decimal NewItemPrice = NewPrice / ValueAdjuster;
                     if (_item.ItemPrice > NewItemPrice && NewPrice != 0)
                     {
                         _item.ItemPrice = NewItemPrice;
@@ -65,7 +64,7 @@ namespace HICUP.ViewModels
             }
             else if (checkEmptyItem == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Reduce Item", "Please Select An Item!", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Increase Item", "Please Select An Item!", "Ok");
             }
             else if (notEmptyValueAdjuster == false)
             {
@@ -93,8 +92,11 @@ namespace HICUP.ViewModels
             get => _valueAdjuster;
             set
             {
-                _valueAdjuster = value;
-                NotifyPropertyChanged("ValueAdjuster");
+                if (!value.Equals(0))
+                {
+                    _valueAdjuster = value;
+                    NotifyPropertyChanged("ValueAdjuster");
+                }
             }
         }
 
@@ -104,8 +106,11 @@ namespace HICUP.ViewModels
             get => _newPrice;
             set
             {
-                _newPrice = value;
-                NotifyPropertyChanged("NewPrice");
+                if (!value.Equals(0))
+                {
+                    _newPrice = value;
+                    NotifyPropertyChanged("NewPrice");
+                }
             }
         }
 
@@ -115,8 +120,11 @@ namespace HICUP.ViewModels
             get => _newLocation;
             set
             {
-                _newLocation = value;
-                NotifyPropertyChanged("NewPrice");
+                if (value != null)
+                {
+                    _newLocation = value;
+                    NotifyPropertyChanged("NewPrice");
+                }
             }
         }
     }

@@ -40,22 +40,29 @@ namespace HICUP.ViewModels
         async Task RemoveItemStock(Inventory selectedItem, int ValueAdjuster)
         {
             bool checkEmptyItem = selectedItem != null;
-            bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);
-            bool aboveZeroCheck = selectedItem.ItemQuantity - ValueAdjuster > 0;
+            bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);         
 
-            if (checkEmptyItem && notEmptyValueAdjuster && aboveZeroCheck)
+            if (checkEmptyItem && notEmptyValueAdjuster)
             {
-                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Reduce Item", "Reduce Item Quantity?", "Ok", "Cancel");
-                if (isUserAccept)
+                bool aboveZeroCheck = selectedItem.ItemQuantity - ValueAdjuster > 0;
+                if (aboveZeroCheck)
                 {
-                    _item = _inventoryRepo.GetItem(selectedItem.Id);
-                    _item.ItemQuantity -= ValueAdjuster;
-                    _inventoryRepo.UpdateItem(_item);
-                    bool UserContinue = await Application.Current.MainPage.DisplayAlert("Increase Item", "Increase Another Item Quantity?", "Yes", "No");
-                    if (!UserContinue)
+                    bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Reduce Item", "Reduce Item Quantity?", "Ok", "Cancel");
+                    if (isUserAccept)
                     {
-                        await _navigation.PopAsync();
+                        _item = _inventoryRepo.GetItem(selectedItem.Id);
+                        _item.ItemQuantity -= ValueAdjuster;
+                        _inventoryRepo.UpdateItem(_item);
+                        bool UserContinue = await Application.Current.MainPage.DisplayAlert("Reduce Item", "Reduce Another Item Quantity?", "Yes", "No");
+                        if (!UserContinue)
+                        {
+                            await _navigation.PopAsync();
+                        }
                     }
+                }
+                else if (aboveZeroCheck == false)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Reduce Item", "You cannot have less than 0 of an item", "Ok");
                 }
             }
             else if (checkEmptyItem == false)
@@ -65,10 +72,6 @@ namespace HICUP.ViewModels
             else if (notEmptyValueAdjuster == false)
             {
                 await Application.Current.MainPage.DisplayAlert("Reduce Item", "'Reduce By' cannot be 0 or empty!", "Ok");
-            }
-            else if (aboveZeroCheck == false)
-            {
-                await Application.Current.MainPage.DisplayAlert("Reduce Item", "You cannot have less than 0 of an item", "Ok");
             }
         }
 
@@ -92,8 +95,11 @@ namespace HICUP.ViewModels
             get => _valueAdjuster;
             set
             {
-                _valueAdjuster = value;
-                NotifyPropertyChanged("ValueAdjuster");
+                if (!value.Equals(0))
+                {
+                    _valueAdjuster = value;
+                    NotifyPropertyChanged("ValueAdjuster");
+                }
             }
         }
     }

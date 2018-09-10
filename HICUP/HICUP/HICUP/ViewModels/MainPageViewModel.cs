@@ -30,6 +30,7 @@ namespace HICUP.ViewModels
 
             DeleteInventoryCommand = new Command(async () => await DeleteInventory());
 
+
         }
 
         async Task ShoppingMode()

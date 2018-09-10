@@ -53,11 +53,7 @@ namespace HICUP.ViewModels
                         _item = _inventoryRepo.GetItem(selectedItem.Id);
                         _item.ItemQuantity -= ValueAdjuster;
                         _inventoryRepo.UpdateItem(_item);
-                        bool UserContinue = await Application.Current.MainPage.DisplayAlert("Reduce Item", "Reduce Another Item Quantity?", "Yes", "No");
-                        if (!UserContinue)
-                        {
-                            await _navigation.PopAsync();
-                        }
+                        await _navigation.PopAsync();
                     }
                 }
                 else if (aboveZeroCheck == false)

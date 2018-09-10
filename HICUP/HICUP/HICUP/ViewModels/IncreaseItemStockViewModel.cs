@@ -55,11 +55,7 @@ namespace HICUP.ViewModels
                     _item.PurchaseDate = DateTime.Today;
                     _item.ItemQuantity += ValueAdjuster;
                     _inventoryRepo.UpdateItem(_item);
-                    bool UserContinue = await Application.Current.MainPage.DisplayAlert("Increase Item", "Increase Another Item Quantity?", "Yes", "No");
-                    if (!UserContinue)
-                    {
-                        await _navigation.PopAsync();
-                    }
+                    await _navigation.PopAsync();
                 }
             }
             else if (checkEmptyItem == false)

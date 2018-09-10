@@ -13,7 +13,8 @@
             <Label Text="Reduce Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   TextColor="Black"/>
             <StackLayout Spacing="0">
                 <Picker x:Name="itemName"
                         Title="Select Item"                        

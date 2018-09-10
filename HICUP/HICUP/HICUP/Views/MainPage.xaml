@@ -13,28 +13,13 @@
         <Label Text="Hello Friend!" 
                FontSize="30"
                HorizontalOptions="Center" 
-               VerticalOptions="StartAndExpand" />
+               VerticalOptions="StartAndExpand"
+               TextColor="Black"/>
         <Image Source="blankuser.png" 
                HeightRequest="100"
                WidthRequest="100"
                HorizontalOptions="Center" 
                VerticalOptions="StartAndExpand"/>
-        <!--<StackLayout Orientation="Horizontal">
-            <StackLayout Spacing="0" 
-                         Orientation="Horizontal" 
-                         HorizontalOptions="Start">
-                <Label Text="Last Shopped" 
-                       HorizontalOptions="Start" 
-                       VerticalOptions="StartAndExpand" />
-            </StackLayout>
-            <StackLayout Spacing="0" 
-                         Orientation="Horizontal" 
-                         HorizontalOptions="EndAndExpand">
-                <Label Text="Low Stock Count" 
-                       HorizontalOptions="End" 
-                       VerticalOptions="StartAndExpand" />
-            </StackLayout>
-        </StackLayout>-->
         <StackLayout Spacing="0">
             <Button x:Name="shoppingModeButton" 
                     Text="Shopping Mode"
@@ -46,16 +31,16 @@
                     Command="{Binding ViewInventoryCommand}"
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"/>
+            <Button x:Name="groceryModeButton" 
+                    Text="Coming Soon!" 
+                    HeightRequest="75" 
+                    VerticalOptions="CenterAndExpand"
+                    IsEnabled="False"/>
             <Button x:Name="deleteInventory" 
                     Text="Delete Entire Inventory"
                     Command="{Binding DeleteInventoryCommand}"
                     HeightRequest="75" 
                     VerticalOptions="CenterAndExpand"/>
-            <Button x:Name="settingsButton" 
-                    Text="Coming Soon!" 
-                    HeightRequest="75" 
-                    VerticalOptions="CenterAndExpand"
-                    IsEnabled="False"/>
         </StackLayout>
     </StackLayout>
 

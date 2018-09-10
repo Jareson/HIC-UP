@@ -24,7 +24,7 @@ namespace HICUP.ViewModels
             _item = new Inventory();
             _inventoryRepo = new InventoryRepo();
 
-            IncreaseItemStockCommand = new Command(async () => await IncreaseItemStock(SelectedItem, ValueAdjuster));
+            IncreaseItemStockCommand = new Command(async () => await IncreaseItemStock(SelectedItem, ValueAdjuster, NewPrice, NewLocation));
 
             FetchInventory();
 
@@ -35,20 +35,32 @@ namespace HICUP.ViewModels
             InventoryList = _inventoryRepo.GetInventory();
         }
 
-        async Task IncreaseItemStock(Inventory selectedItem, int ValueAdjuster)
+        async Task IncreaseItemStock(Inventory selectedItem, int ValueAdjuster, decimal NewPrice, string NewLocation)
         {
             bool checkEmptyItem = selectedItem != null;
             bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);
+            decimal NewItemPrice = NewPrice / ValueAdjuster;
+
 
             if (checkEmptyItem && notEmptyValueAdjuster)
             {
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Increase Item", "Increase Item Quantity?", "Ok", "Cancel");
                 if (isUserAccept)
-                {
+                {                    
                     _item = _inventoryRepo.GetItem(selectedItem.Id);
+                    if (_item.ItemPrice > NewItemPrice && NewPrice != 0)
+                    {
+                        _item.ItemPrice = NewItemPrice;
+                        _item.ItemLocation = NewLocation;
+                    }
+                    _item.PurchaseDate = DateTime.Today;
                     _item.ItemQuantity += ValueAdjuster;
                     _inventoryRepo.UpdateItem(_item);
-                    await _navigation.PopAsync();
+                    bool UserContinue = await Application.Current.MainPage.DisplayAlert("Increase Item", "Increase Another Item Quantity?", "Yes", "No");
+                    if (!UserContinue)
+                    {
+                        await _navigation.PopAsync();
+                    }
                 }
             }
             else if (checkEmptyItem == false)
@@ -83,6 +95,28 @@ namespace HICUP.ViewModels
             {
                 _valueAdjuster = value;
                 NotifyPropertyChanged("ValueAdjuster");
+            }
+        }
+
+        decimal _newPrice;
+        public decimal NewPrice
+        {
+            get => _newPrice;
+            set
+            {
+                _newPrice = value;
+                NotifyPropertyChanged("NewPrice");
+            }
+        }
+
+        string _newLocation;
+        public string NewLocation
+        {
+            get => _newLocation;
+            set
+            {
+                _newLocation = value;
+                NotifyPropertyChanged("NewPrice");
             }
         }
     }

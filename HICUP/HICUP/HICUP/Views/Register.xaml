@@ -15,7 +15,7 @@
                    FontSize="30" 
                    TextColor="Black" 
                    HorizontalOptions="Center" 
-                   VerticalOptions="StartAndExpand" />
+                   VerticalOptions="StartAndExpand"/>
             <StackLayout Spacing="0">
                 <Entry x:Name="username" 
                        Placeholder="Username" 

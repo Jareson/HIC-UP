@@ -13,7 +13,8 @@
             <Label Text="Increase Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   TextColor="Black"/>
             <StackLayout Spacing="0">
                 <Picker x:Name="itemName"
                         Title="Select Item"                        
@@ -28,10 +29,37 @@
                     <Label Text="Current Quantity: " />
                     <Label Text="{Binding SelectedItem.ItemQuantity}" />
                 </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Best Price Per Item:" />
+                    <Label Text="{Binding SelectedItem.ItemPrice, StringFormat=' {0:C} '}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Best Price Location: " />
+                    <Label Text="{Binding SelectedItem.ItemLocation}" />
+                </StackLayout>
                 <Entry x:Name="itemQuantity"
                        Text="{Binding ValueAdjuster, Mode=OneWayToSource}"
                        Keyboard="Numeric"
                        Placeholder="Increase By"
+                       PlaceholderColor="Gray"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="itemPrice"
+                       Text="{Binding NewPrice, Mode=OneWayToSource}"
+                       Keyboard="Numeric"
+                       Placeholder="New Price"
+                       PlaceholderColor="Gray"
+                       HorizontalTextAlignment="Start"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="itemLocation"
+                       Text="{Binding NewLocation, Mode=OneWayToSource}"
+                       Placeholder="Location of Price"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"

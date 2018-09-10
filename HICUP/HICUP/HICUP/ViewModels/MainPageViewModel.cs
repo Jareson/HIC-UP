@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using HICUP.Models;
@@ -29,12 +30,6 @@ namespace HICUP.ViewModels
 
             DeleteInventoryCommand = new Command(async () => await DeleteInventory());
 
-            FetchInventory();
-        }
-
-        void FetchInventory()
-        {
-            InventoryList = _inventoryRepo.GetInventory();
         }
 
         async Task ShoppingMode()
@@ -57,6 +52,7 @@ namespace HICUP.ViewModels
                 if (isUserAcceptConfirm)
                 {
                     _inventoryRepo.DeleteInventory();
+                    await Application.Current.MainPage.DisplayAlert("Delete Inventory", "Inventory Successfully Deleted", "Ok");
                 }
             }
         }

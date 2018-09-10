@@ -13,7 +13,8 @@
             <Label Text="Add Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   TextColor="Black"/>
             <StackLayout Spacing="0">
                 <Label Text="Item Name"
                        HorizontalTextAlignment="Start"
@@ -77,7 +78,7 @@
                 <Entry x:Name="itemPrice"
                        Text="{Binding ItemPrice, Mode=OneWayToSource}"
                        Placeholder="Price"
-                       Keyboard="Numeric"
+                       Keyboard="Numeric"                       
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
@@ -87,7 +88,7 @@
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemLocation"
-                       Text="{Binding ItemLocation}"
+                       Text="{Binding ItemLocation}"                       
                        Placeholder="Location of Purchase"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"

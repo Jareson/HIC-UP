@@ -19,7 +19,8 @@
                    Grid.Row="0"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   TextColor="Black"/>
             <ListView x:Name="inventory"
                       Margin="10"
                       Grid.Row="1"
@@ -61,6 +62,12 @@
                                            Text="{Binding ItemMeasurement}"
                                            TextColor="Black"/>
                                 </StackLayout>
+                                <Label Text="{Binding ItemPrice, StringFormat='Best Purchase Price: {0:C}'}" 
+                                       Grid.Row="1"   
+                                       Grid.Column="1" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="Black"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

@@ -13,7 +13,8 @@
             <Label Text="Modify Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   TextColor="Black"/>
             <StackLayout Spacing="0">
                 <Label Text="Item Name"
                        HorizontalTextAlignment="Start"
@@ -64,19 +65,19 @@
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
-                <Label Text="Item Price"
+                <Label Text="Best Price Per Item"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemPrice"
-                       Text="{Binding ItemPrice, StringFormat=' {0:C} '}"
+                       Text="{Binding ItemPrice}"
                        Placeholder="Price"
                        PlaceholderColor="Gray"
                        Keyboard="Numeric"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
-                <Label Text="Item Location"
+                <Label Text="Best Price Location"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>

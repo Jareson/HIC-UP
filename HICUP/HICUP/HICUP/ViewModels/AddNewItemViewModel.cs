@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using HICUP.Models;
@@ -37,6 +38,7 @@ namespace HICUP.ViewModels
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Add Item", "Do you want to add this item to your inventory?", "OK", "Cancel");
                 if (isUserAccept)
                 {
+                    _item.Item = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(_item.Item);
                     _item.PurchaseDate = DateTime.Today;
                     _item.ItemPrice = Math.Round(_item.ItemPrice / _item.ItemQuantity, 2);
                     _inventoryRepo.InsertItem(_item);

@@ -13,7 +13,8 @@
             <Label Text="View Item"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start"/>
+                   VerticalOptions="Start"
+                   TextColor="Black"/>
             <StackLayout Spacing="0">
                 <Label x:Name="itemName"
                        Text="{Binding Item, StringFormat='Item: {0}'}"
@@ -30,13 +31,13 @@
                            FontSize="20"/>
             </StackLayout>
                 <Label x:Name="itemPrice"
-                       Text="{Binding ItemPrice, StringFormat='Price per Quantity: {0:C}'}"
+                       Text="{Binding ItemPrice, StringFormat='Best Price per Quantity: {0:C}'}"
                        FontSize="20"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"/>
                 <Label x:Name="itemLocation"
-                       Text="{Binding ItemLocation, StringFormat='Last Location Purchased: {0}'}"
+                       Text="{Binding ItemLocation, StringFormat='Best Price Location: {0}'}"
                        FontSize="20"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"

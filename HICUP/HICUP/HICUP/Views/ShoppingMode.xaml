@@ -15,7 +15,7 @@
                    FontSize="30"
                    HorizontalOptions="Center" 
                    VerticalOptions="Start" 
-                   />
+                   TextColor="Black"/>
             <StackLayout Spacing="1">
                 <Button x:Name="addNewItemButton"                        
                         Text="Add New Item"

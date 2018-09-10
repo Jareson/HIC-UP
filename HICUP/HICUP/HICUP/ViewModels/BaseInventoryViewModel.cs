@@ -24,7 +24,7 @@ namespace HICUP.ViewModels
             get => _item.Item;
             set
             {
-                _item.Item = value.ToUpper();
+                _item.Item = value;
                 NotifyPropertyChanged("Item");
             }
         }

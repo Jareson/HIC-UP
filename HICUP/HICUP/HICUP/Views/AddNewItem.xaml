@@ -76,7 +76,7 @@
                        HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemPrice"
                        Text="{Binding ItemPrice, Mode=OneWayToSource}"
-                       Placeholder="Price (Optional)"
+                       Placeholder="Price"
                        Keyboard="Numeric"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
@@ -88,7 +88,7 @@
                        HorizontalOptions="FillAndExpand"/>
                 <Entry x:Name="itemLocation"
                        Text="{Binding ItemLocation}"
-                       Placeholder="Location of Purchase (Optional)"
+                       Placeholder="Location of Purchase"
                        PlaceholderColor="Gray"
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"

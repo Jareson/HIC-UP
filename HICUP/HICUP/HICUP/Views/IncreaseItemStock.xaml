@@ -22,7 +22,12 @@
                         ItemsSource="{Binding InventoryList}"
                         ItemDisplayBinding="{Binding Item}"
                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
-                <Label Text="{Binding SelectedItem.ItemQuantity, StringFormat='Current Quantity: {0]'}"/>
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand">
+                    <Label Text="Current Quantity: " />
+                    <Label Text="{Binding SelectedItem.ItemQuantity}" />
+                </StackLayout>
                 <Entry x:Name="itemQuantity"
                        Text="{Binding ValueAdjuster, Mode=OneWayToSource}"
                        Keyboard="Numeric"
@@ -31,7 +36,7 @@
                        HorizontalTextAlignment="Start"
                        VerticalOptions="Center"
                        HorizontalOptions="FillAndExpand"/>
-                <Button x:Name="increaseItem" 
+                <Button x:Name="increaseItemButton" 
                         Text="Add to Inventory"
                         Command="{Binding IncreaseItemStockCommand}"
                         HorizontalOptions="FillAndExpand"

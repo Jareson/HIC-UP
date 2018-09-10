@@ -24,7 +24,7 @@ namespace HICUP.ViewModels
             _item = new Inventory();
             _inventoryRepo = new InventoryRepo();
 
-            IncreaseItemStockCommand = new Command(async () => await IncreaseItemStock(SelectedItem.Id, ValueAdjuster));
+            IncreaseItemStockCommand = new Command(async () => await IncreaseItemStock(SelectedItem, ValueAdjuster));
 
             FetchInventory();
 
@@ -35,28 +35,29 @@ namespace HICUP.ViewModels
             InventoryList = _inventoryRepo.GetInventory();
         }
 
-        async Task IncreaseItemStock(int selectedItemID, int ValueAdjuster)
+        async Task IncreaseItemStock(Inventory selectedItem, int ValueAdjuster)
         {
-            _item = _inventoryRepo.GetItem(selectedItemID);
-            var validationResults = _inventoryValidator.Validate(_item);
+            bool checkEmptyItem = selectedItem != null;
+            bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);
 
-            if (validationResults.IsValid && !string.IsNullOrEmpty(ValueAdjuster.ToString()))
+            if (checkEmptyItem && notEmptyValueAdjuster)
             {
-                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Increase Item", "Add Item Quantity?", "Ok", "Cancel");
+                bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Increase Item", "Increase Item Quantity?", "Ok", "Cancel");
                 if (isUserAccept)
                 {
+                    _item = _inventoryRepo.GetItem(selectedItem.Id);
                     _item.ItemQuantity += ValueAdjuster;
                     _inventoryRepo.UpdateItem(_item);
                     await _navigation.PopAsync();
                 }
             }
-            else if (validationResults.IsValid == false)
+            else if (checkEmptyItem == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Increase Item", validationResults.Errors[0].ErrorMessage, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Reduce Item", "Please Select An Item!", "Ok");
             }
-            else if (string.IsNullOrEmpty(ValueAdjuster.ToString()) == true)
+            else if (notEmptyValueAdjuster == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Increase Item", "'Increase By' cannot be empty!", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Increase Item", "'Increase By' cannot be 0 or empty!", "Ok");
             }
         }
 

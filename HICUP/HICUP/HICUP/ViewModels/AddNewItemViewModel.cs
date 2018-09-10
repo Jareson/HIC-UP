@@ -30,8 +30,9 @@ namespace HICUP.ViewModels
         async Task AddItem()
         {
             var validationResults = _inventoryValidator.Validate(_item);
+            var checkDuplicate = _inventoryRepo.GetItemByName(_item.Item) == null;
 
-            if (validationResults.IsValid)
+            if (validationResults.IsValid && checkDuplicate)
             {
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Add Item", "Do you want to add this item to your inventory?", "OK", "Cancel");
                 if (isUserAccept)
@@ -42,9 +43,13 @@ namespace HICUP.ViewModels
                     await _navigation.PopAsync();
                 }
             }
-            else
+            else if (validationResults.IsValid == false)
             {
                 await Application.Current.MainPage.DisplayAlert("Add Item", validationResults.Errors[0].ErrorMessage, "Ok");
+            }
+            else if (checkDuplicate == false)
+            {
+                await Application.Current.MainPage.DisplayAlert("Add Item", "Cannot have duplicate items", "Ok");
             }
         }
     }

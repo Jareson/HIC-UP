@@ -24,7 +24,7 @@ namespace HICUP.ViewModels
             _item = new Inventory();
             _inventoryRepo = new InventoryRepo();
 
-            RemoveItemStockCommand = new Command(async () => await RemoveItemStock(SelectedItem.Id, ValueAdjuster));
+            RemoveItemStockCommand = new Command(async () => await RemoveItemStock(SelectedItem, ValueAdjuster));
 
             FetchInventory();
 
@@ -37,34 +37,34 @@ namespace HICUP.ViewModels
 
 
 
-        async Task RemoveItemStock(int selectedItemID, int ValueAdjuster)
+        async Task RemoveItemStock(Inventory selectedItem, int ValueAdjuster)
         {
-            _item = _inventoryRepo.GetItem(selectedItemID);
-            var validationResults = _inventoryValidator.Validate(_item);
+            bool checkEmptyItem = selectedItem != null;
+            bool notEmptyValueAdjuster = !ValueAdjuster.Equals(0);
+            bool aboveZeroCheck = selectedItem.ItemQuantity - ValueAdjuster > 0;
 
-            if (validationResults.IsValid)
+            if (checkEmptyItem && notEmptyValueAdjuster && aboveZeroCheck)
             {
                 bool isUserAccept = await Application.Current.MainPage.DisplayAlert("Reduce Item", "Reduce Item Quantity?", "Ok", "Cancel");
                 if (isUserAccept)
                 {
-                    if ((_item.ItemQuantity - ValueAdjuster < 0))
-                    {
-                        await Application.Current.MainPage.DisplayAlert("Reduce Item", "You cannot have less than 0 of an item", "Ok");
-                    }
-                    else
-                    {
-                        _inventoryRepo.UpdateItem(_item);
-                        await _navigation.PopAsync();
-                    }
+                    _item = _inventoryRepo.GetItem(selectedItem.Id);
+                    _item.ItemQuantity -= ValueAdjuster;
+                    _inventoryRepo.UpdateItem(_item);
+                    await _navigation.PopAsync();                    
                 }
             }
-            else if (validationResults.IsValid == false)
+            else if (checkEmptyItem == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Reduce Item", validationResults.Errors[0].ErrorMessage, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Reduce Item", "Please Select An Item!", "Ok");
             }
-            else if (string.IsNullOrEmpty(ValueAdjuster.ToString()) == true)
+            else if (notEmptyValueAdjuster == false)
             {
-                await Application.Current.MainPage.DisplayAlert("Reduce Item", "'Reduce By' cannot be empty!", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Reduce Item", "'Reduce By' cannot be 0 or empty!", "Ok");
+            }
+            else if (aboveZeroCheck == false)
+            {
+                await Application.Current.MainPage.DisplayAlert("Reduce Item", "You cannot have less than 0 of an item", "Ok");
             }
         }
 

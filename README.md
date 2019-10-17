@@ -17,7 +17,6 @@ Technologies:<br/>
   -C#<br/>
   -XAML<br/>
   -SQLite<br/>
-  -Google Sheets API<br/>
     
 What you'll have to learn: <br/>
   I will be learning how to use Xamarin in order to produce an Android app over Visual Studio through C#. This will also result in learing XAML and XML to create the UIs for the app, as well as Android SDK to understand how the architecture works. I intend to learn and utilize Javascript if possible, but that may not be immediately valuable. 
